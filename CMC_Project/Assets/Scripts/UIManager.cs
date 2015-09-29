@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
+	public Vector2 vehicleLocation;
+
 	public GameObject start_button;
 	public GameObject play_button;
 	public GameObject build_button;
@@ -20,17 +22,14 @@ public class UIManager : MonoBehaviour {
 		}
 		showStart ();
 	}
-
-	// Update is called once per frame
-	void Update () {
 	
-	}
 
 	void showStart (){
 		if (start_button != null && !start_button.activeInHierarchy) {
 			start_button.SetActive(true);
 		}
 	}
+
 
 	public void showSelectionMenu(){
 		if (play_button != null && build_button != null && options_button != null) {
@@ -44,6 +43,7 @@ public class UIManager : MonoBehaviour {
 		}
 	}
 
+
 	public void showNameScreen(){
 		if (name_screen != null && !name_screen.activeInHierarchy) {
 			play_button.SetActive(false);
@@ -56,6 +56,7 @@ public class UIManager : MonoBehaviour {
 
 		}
 	}
+
 
 	public void submitName(){
 		if (player_name != null) {
@@ -75,6 +76,7 @@ public class UIManager : MonoBehaviour {
 		}
 	}
 
+
 	bool saveScreenName(string name){
 		try{
 			PlayerPrefs.SetString("PlayerName", name);
@@ -84,6 +86,7 @@ public class UIManager : MonoBehaviour {
 		}
 		return true;
 	}
+
 
 	string getScreenName (){
 		string name = "";
