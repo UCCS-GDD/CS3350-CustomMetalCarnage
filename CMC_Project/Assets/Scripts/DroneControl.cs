@@ -35,7 +35,7 @@ public class DroneControl : MonoBehaviour
 				thisRigidbody.drag = dragVal; 
 				thisRigidbody.AddForce(inputs, ForceMode2D.Impulse);
 			}
-			Debug.Log(thisRigidbody.drag);
+			//Debug.Log(thisRigidbody.drag);
 
 			// Clamp max velocity
 			if(thisRigidbody.velocity.magnitude > movementSpeed)
