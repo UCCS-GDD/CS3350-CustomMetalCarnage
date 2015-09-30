@@ -7,6 +7,7 @@ public class PressStart : MonoBehaviour
 	public float timeOff = 1f;
 
 	private float currentTime;
+    
 	private UIManager managerScript;
 	private UnityEngine.UI.Text thisText;
 	private string thisString;
@@ -17,6 +18,7 @@ public class PressStart : MonoBehaviour
 		managerScript = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
 		thisText = this.GetComponent<UnityEngine.UI.Text>();
 		thisString = thisText.text;
+        
 
 		// Start checker coroutine
 		StartCoroutine ("CheckForStart");
@@ -32,7 +34,10 @@ public class PressStart : MonoBehaviour
 		{
 			if(Input.GetButton("Submit"))
 			{
+                Debug.Log("the sound should  be playing.");
+                
 				managerScript.showSelectionMenu();
+                
 			}
 			yield return null;
 		}

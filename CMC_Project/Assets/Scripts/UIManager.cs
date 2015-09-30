@@ -14,11 +14,17 @@ public class UIManager : MonoBehaviour {
 	public InputField player_name;
 	public GameObject title_screen;
 	public GameObject rotator_menu;
+    public AudioClip startClip;
+
+    private AudioSource audio;
+
 
 	// Use this for initialization
 	void Start () {
 		if (title_screen != null) {
 			title_screen.SetActive(true);
+            audio = start_button.GetComponent<AudioSource>();
+            //audio.Play();
 		}
 		showStart ();
 	}
@@ -39,6 +45,7 @@ public class UIManager : MonoBehaviour {
 				play_button.SetActive(true);
 				build_button.SetActive(true);
 				options_button.SetActive(true);
+                AudioSource.PlayClipAtPoint(startClip, Camera.main.transform.position);
 			}
 		}
 	}
