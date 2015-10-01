@@ -7,9 +7,19 @@ public class selectSettings : MonoBehaviour {
 	public Sprite offSprite;
 	public string save_key;
 
+	public GameObject uiManager;
+	private UIManager uiScript;
+
+	public GameObject loadoutObject;
+	private loadoutPreferences lopScript;
+
 	Button[] buttons;
 	// Use this for initialization
 	void Start () {
+
+		uiScript = uiManager.GetComponent<UIManager>();
+		lopScript = loadoutObject.GetComponent<loadoutPreferences>();
+
 		if (onSprite == null || offSprite == null)
 			Debug.Log ("Missing Sprite");
 
@@ -33,16 +43,44 @@ public class selectSettings : MonoBehaviour {
 				b.image.sprite = offSprite;
 				//Debug.Log(b.ToString);
 			}
-			Image i = selected.GetComponent<Image>();
-			i.sprite = onSprite;
+			if(!save_key.Equals("Weapon"))
+			{
+				Image i = selected.GetComponent<Image>();
+				i.sprite = onSprite;
+			}
 
+			uiScript.ChangePart(save_key, selected.name);
 		}
 	}
+
+
+	public void onSelection()
+	{
+		if (buttons != null) 
+		{
+			foreach(Button b in buttons)
+			{
+				b.image.sprite = offSprite;
+				//Debug.Log(b.ToString);
+			}
+			//lopScript.HighlightParts();			
+		}
+	}
+
 
 	public void addToPreferences (int i){
 		try{
 			if(save_key != null)
-				PlayerPrefs.SetInt(save_key, i);
+			{
+				if(save_key.Equals("Weapon"))
+				{
+					uiScript.AddWeaponToPrefs(i);
+				}
+				else
+				{
+					PlayerPrefs.SetInt(save_key, i);
+				}
+			}
 		}catch(PlayerPrefsException e){
 			Debug.LogException(e);
 		}

@@ -4,6 +4,37 @@ using System.Collections.Generic;
 
 public class TurretControl : MonoBehaviour 
 {
+	[System.Serializable]
+	public class HardPoint
+	{
+		// Clockwise positive, 0-359, 0 = straight up
+		public float Angle;
+		public Vector2 Location;
+		
+//		public Vector2 Location
+//		{
+//			get
+//			{
+//				return location;
+//			}
+//		}
+//		
+//		public float Angle
+//		{
+//			get
+//			{
+//				return angle;
+//			}
+//		}
+		
+		public HardPoint(Vector2 inputLocation, float inputAngle)
+		{
+			Location = inputLocation;
+			Angle = inputAngle % 360f;
+		}
+	}
+
+
 	public List<HardPoint> hardPoints = new List<HardPoint>();
 	public float rotationSpeed = 1;
 
