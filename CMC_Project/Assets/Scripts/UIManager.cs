@@ -32,6 +32,8 @@ public class UIManager : MonoBehaviour {
 	private Vector3 oldPosition;
 	private Quaternion oldRotation;
 
+	private GameObject playerObject;
+
 	// Use this for initialization
 	void Start () {
 		if (title_screen != null) {
@@ -446,5 +448,13 @@ public class UIManager : MonoBehaviour {
 		}
 	}
 
+
+	public void NextLevel()
+	{
+		playerObject = GameObject.FindGameObjectWithTag("Player");
+		DontDestroyOnLoad(playerObject);
+
+		Application.LoadLevel(1);
+	}
 
 }
