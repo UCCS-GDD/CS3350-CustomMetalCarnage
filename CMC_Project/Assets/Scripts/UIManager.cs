@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour {
 	public Vector2 vehicleLocation;
 
 	public GameObject start_button;
+    public GameObject audioManager;
 	public GameObject play_button;
 	public GameObject build_button;
 	public GameObject options_button;
@@ -38,7 +39,7 @@ public class UIManager : MonoBehaviour {
 	void Start () {
 		if (title_screen != null) {
 			title_screen.SetActive(true);
-            audio = start_button.GetComponent<AudioSource>();
+            //audioManager = n.GetComponent<AudioSource>();
             //audio.Play();
 		}
 		showStart ();
@@ -60,6 +61,7 @@ public class UIManager : MonoBehaviour {
 				play_button.SetActive(true);
 				build_button.SetActive(true);
 				options_button.SetActive(true);
+                //audioManager.playSound(startClip);)
                 AudioSource.PlayClipAtPoint(startClip, Camera.main.transform.position);
 			}
 		}
