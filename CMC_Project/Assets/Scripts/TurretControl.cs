@@ -66,8 +66,13 @@ public class TurretControl : MonoBehaviour
 	}
 	
 
-	void DelegateFireAndReload() 
+	public void DelegateFireAndReload() 
 	{		
+		// Clear delegates
+		primaryFire = null;
+		secondaryFire = null;
+		secondaryReload = null;
+
 		// Loop through children
 		foreach(Transform child in transform)
 		{

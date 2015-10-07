@@ -4,7 +4,7 @@ using System.Collections;
 public class DroneControl : MonoBehaviour 
 {
 	public float movementSpeed = 1f;
-	public Rigidbody2D thisRigidbody;
+	private Rigidbody2D thisRigidbody;
 	private Vector2 inputs;
 	private Vector2 inputsSnap;
 	private float dragVal;

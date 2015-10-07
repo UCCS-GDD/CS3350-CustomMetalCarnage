@@ -257,6 +257,10 @@ public class UIManager : MonoBehaviour {
 				}
 				tempInt++;
 			}
+
+			// Update TurretControl delegates
+			tempTurret.GetComponent<TurretControl>().DelegateFireAndReload();
+
 			// Sync playerprefs
 			tempInt = 1;
 			while(true)
@@ -368,6 +372,8 @@ public class UIManager : MonoBehaviour {
 
 				// Attach weapon to Turret
 				tempWeapons[tempInt].transform.parent = tempTurret.transform;
+				// Update TurretControl Delegates
+				tempTurret.GetComponent<TurretControl>().DelegateFireAndReload();
 				// move weapon to hardpoint position
 				tempWeapons[tempInt].transform.localPosition = new Vector3(currentHardPoint.Location.x, currentHardPoint.Location.y, 0f);
 				tempWeapons[tempInt].transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, currentHardPoint.Angle));
@@ -416,6 +422,8 @@ public class UIManager : MonoBehaviour {
 			Debug.Log("Removed weapon");
 			Destroy(tempWeapons[tempInt]);
 			tempWeapons[tempInt] = null;
+			// Update TurretControl Delegates
+			tempTurret.GetComponent<TurretControl>().DelegateFireAndReload();
 		}
 		// Sync with PlayerPrefs
 		int ii=1;
@@ -446,6 +454,8 @@ public class UIManager : MonoBehaviour {
 				break;
 			}
 		}
+
+
 	}
 
 
