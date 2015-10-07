@@ -11,14 +11,12 @@ public class selectSettings : MonoBehaviour {
 	private UIManager uiScript;
 
 	public GameObject loadoutObject;
-	private loadoutPreferences lopScript;
 
 	Button[] buttons;
 	// Use this for initialization
 	void Start () {
 
 		uiScript = uiManager.GetComponent<UIManager>();
-		lopScript = loadoutObject.GetComponent<loadoutPreferences>();
 
 		if (onSprite == null || offSprite == null)
 			Debug.Log ("Missing Sprite");
@@ -62,8 +60,7 @@ public class selectSettings : MonoBehaviour {
 			{
 				b.image.sprite = offSprite;
 				//Debug.Log(b.ToString);
-			}
-			//lopScript.HighlightParts();			
+			}	
 		}
 	}
 
