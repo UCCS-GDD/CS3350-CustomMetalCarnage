@@ -34,7 +34,7 @@ public class PressStart : MonoBehaviour
 		{
 			if(Input.GetButton("Submit"))
 			{
-                Debug.Log("the sound should  be playing.");
+                //Debug.Log("the sound should  be playing.");
                 
 				managerScript.showSelectionMenu();
                 
