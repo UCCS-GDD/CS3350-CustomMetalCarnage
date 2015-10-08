@@ -1,0 +1,100 @@
+Initialize engine version: 5.2.1f1 (44735ea161b3)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4600 (ID=0x416)
+    Vendor:   Intel
+    VRAM:     128 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.152 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\System.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2f34 -> priority: 1 
+  Thread -> id: 5820 -> priority: 1 
+Success in saving name!Josh6714
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Found 3 buttons 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Found 3 buttons 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Found 1 buttons 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Weapon_1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Weapon_2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Weapon_3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+tempWeapons.Count=0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Current Hardpoint 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Added with weapon id 1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+tempWeapons.Count=1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Current Hardpoint 1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Added with weapon id 1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+tempWeapons.Count=2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Current Hardpoint 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Added with weapon id 1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Found 2 buttons 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.635211 ms
+
+Unloading 30 unused Assets to reduce memory usage. Loaded Objects now: 218.
+Total: 0.248467 ms (FindLiveObjects: 0.021382 ms CreateObjectMapping: 0.009836 ms MarkObjects: 0.195866 ms  DeleteObjects: 0.020955 ms)
+
