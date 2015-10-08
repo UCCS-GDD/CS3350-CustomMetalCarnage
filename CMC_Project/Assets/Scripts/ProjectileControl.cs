@@ -4,12 +4,16 @@ using System.Collections;
 public class ProjectileControl : MonoBehaviour 
 {
 	public float travelSpeed = 1f;
+	public float timeAfterColl = 0f;
 	public int damage = 1;
 	public GameObject explosionPrefab;
 
 	private GameObject tempObject;
 	private Rigidbody2D thisRigidbody;
 	private Vector2 travelVelocity;
+
+	private float collisionTime = 0f;
+	private bool exploded = false;
 
 	// Use this for initialization
 	void Start () 
@@ -20,11 +24,23 @@ public class ProjectileControl : MonoBehaviour
 
 	void FixedUpdate () 
 	{
-		thisRigidbody.velocity = travelVelocity;
+		if(!exploded)
+		{
+			thisRigidbody.velocity = travelVelocity;
+		}
+		else
+		{
+			thisRigidbody.velocity = Vector2.zero;
+			if(Time.time > (collisionTime+timeAfterColl))
+			{
+				this.gameObject.SetActive(false);
+			}
+		}
 	}
 
 	public void RefreshVelocity()
 	{
+		exploded = false;
 		travelVelocity = new Vector2(-Mathf.Sin(Mathf.Deg2Rad*transform.rotation.eulerAngles.z)*travelSpeed, Mathf.Cos(Mathf.Deg2Rad*transform.rotation.eulerAngles.z)*travelSpeed);
 	}
 
@@ -36,7 +52,8 @@ public class ProjectileControl : MonoBehaviour
 		{
 		case "Wall":
 		case "Enemy":
-			this.gameObject.SetActive(false);
+			exploded = true;
+			collisionTime = Time.time;
 			OnHitEffects(coll.gameObject);
 			break;
 		}
@@ -51,7 +68,7 @@ public class ProjectileControl : MonoBehaviour
 //		}
 
 		// Spawn explosion particles
-		//tempObject = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
+		tempObject = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
 
 	}
 
