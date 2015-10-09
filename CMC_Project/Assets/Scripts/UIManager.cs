@@ -421,11 +421,17 @@ public class UIManager : MonoBehaviour {
 		Debug.Log("tempInt="+tempInt);
 		if(tempInt>=0)
 		{
+			// PUT REMOVE WEAPON SOUND HERE
+
 			Debug.Log("Removed weapon");
 			Destroy(tempWeapons[tempInt]);
 			tempWeapons[tempInt] = null;
 			// Update TurretControl Delegates
 			tempTurret.GetComponent<TurretControl>().DelegateFireAndReload();
+		}
+		else
+		{
+			// PUT CANNOT REMOVE WEAPON SOUND HERE
 		}
 		// Sync with PlayerPrefs
 		int ii=1;
