@@ -53,6 +53,7 @@ public class ProjectileControl : MonoBehaviour
 		case "Wall":
 		case "Enemy":
 			exploded = true;
+			this.GetComponent<Collider2D>().enabled = false;
 			collisionTime = Time.time;
 			OnHitEffects(coll.gameObject);
 			break;
@@ -62,10 +63,11 @@ public class ProjectileControl : MonoBehaviour
 
 	void OnHitEffects(GameObject other)
 	{
-//		if(other.tag == "Enemy")
-//		{
-//			//other.GetComponent<EnemyControl>().TakeDamage(damage);
-//		}
+		if(other.tag == "Enemy")
+		{
+			//other.GetComponent<EnemyControl>().TakeDamage(damage);
+			Destroy(other.gameObject);
+		}
 
 		// Spawn explosion particles
 		tempObject = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;

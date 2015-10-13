@@ -39,6 +39,7 @@ public class WeaponControl : MonoBehaviour
 				tempObject.transform.localRotation = Quaternion.identity;
 				tempObject.transform.parent = null;
 				tempObject.SetActive(true);
+				tempObject.GetComponent<Collider2D>().enabled = true;
 				tempObject.GetComponent<ProjectileControl>().RefreshVelocity();
 			}
 			else
