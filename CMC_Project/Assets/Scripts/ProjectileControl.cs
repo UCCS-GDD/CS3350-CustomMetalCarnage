@@ -14,11 +14,13 @@ public class ProjectileControl : MonoBehaviour
 
 	private float collisionTime = 0f;
 	private bool exploded = false;
+	private SpriteRenderer thisRenderer;
 
 	// Use this for initialization
 	void Start () 
 	{
 		thisRigidbody = this.GetComponent<Rigidbody2D>();
+		thisRenderer = this.GetComponent<SpriteRenderer>();
 		RefreshVelocity();
 	}
 
@@ -54,6 +56,10 @@ public class ProjectileControl : MonoBehaviour
 		case "Enemy":
 			exploded = true;
 			this.GetComponent<Collider2D>().enabled = false;
+			if(thisRenderer!=null)
+			{
+				thisRenderer.enabled = false;
+			}
 			collisionTime = Time.time;
 			OnHitEffects(coll.gameObject);
 			break;

@@ -192,6 +192,10 @@ public class UIManager : MonoBehaviour {
 			// Load new chassis object
 			// Instantiate new chassis object
 			tempChassis = Instantiate(Resources.Load("Chassis/"+partName), oldPosition, oldRotation) as GameObject;
+			if(partName=="Drone")
+			{
+				tempChassis.transform.rotation = Quaternion.identity;
+			}
 
 			if(tempTurret!=null)
 			{
@@ -470,6 +474,7 @@ public class UIManager : MonoBehaviour {
 	public void NextLevel()
 	{
 		playerObject = GameObject.FindGameObjectWithTag("Player");
+		playerObject.transform.position = new Vector3(5f, -5f, 0f);
 		DontDestroyOnLoad(playerObject);
 
 		Application.LoadLevel(1);

@@ -40,6 +40,10 @@ public class WeaponControl : MonoBehaviour
 				tempObject.transform.parent = null;
 				tempObject.SetActive(true);
 				tempObject.GetComponent<Collider2D>().enabled = true;
+				if(tempObject.GetComponent<SpriteRenderer>()!=null)
+				{
+					tempObject.GetComponent<SpriteRenderer>().enabled = true;
+				}
 				tempObject.GetComponent<ProjectileControl>().RefreshVelocity();
 			}
 			else
