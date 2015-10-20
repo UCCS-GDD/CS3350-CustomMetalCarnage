@@ -12,6 +12,8 @@ public class BomberControl : MonoBehaviour
 	private float angleToPlayer;
 	private Quaternion targetRotation;
 	public float rotationSpeed;
+    public SoundManager audioManager;
+    public AudioClip explosionSound;
 
 	public GameObject explosionPrefab;
 	private GameObject tempObject;
@@ -44,6 +46,7 @@ public class BomberControl : MonoBehaviour
 		{
 			tempObject = Instantiate(explosionPrefab, transform.position, transform.rotation) as GameObject;
 			//coll.gameObject.GetComponent<PlayerControl>().TakeDamage(damage);
+            audioManager.playSound(explosionSound);
 			Destroy(this.gameObject);
 		}
 	}
