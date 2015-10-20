@@ -8,12 +8,14 @@ public class DroneControl : MonoBehaviour
 	private Vector2 inputs;
 	private Vector2 inputsSnap;
 	private float dragVal;
+    Animator anim;
 
 	// Use this for initialization
 	void Start () 
 	{
 		thisRigidbody = gameObject.GetComponent<Rigidbody2D>();
 		dragVal = thisRigidbody.drag;
+        anim = GetComponent<Animator>();
 
 		StartCoroutine("MoveCoroutine");
 	}
@@ -42,6 +44,10 @@ public class DroneControl : MonoBehaviour
 			{
 				thisRigidbody.velocity = thisRigidbody.velocity.normalized * movementSpeed;
 			}
+
+            // Animate based on speed
+            anim.SetFloat("Speed", thisRigidbody.velocity.magnitude);
+
 			yield return null;
 		}
 	}
