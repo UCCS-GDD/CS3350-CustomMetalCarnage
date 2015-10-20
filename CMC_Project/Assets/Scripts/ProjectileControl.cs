@@ -7,6 +7,8 @@ public class ProjectileControl : MonoBehaviour
 	public float timeAfterColl = 0f;
 	public int damage = 1;
 	public GameObject explosionPrefab;
+    public SoundManager audioManager;
+    public AudioClip explosionSound;
 
 	private GameObject tempObject;
 	private Rigidbody2D thisRigidbody;
@@ -55,6 +57,10 @@ public class ProjectileControl : MonoBehaviour
 		case "Wall":
 		case "Enemy":
 			exploded = true;
+            if (explosionSound != null)
+            {
+                audioManager.playSound(explosionSound);
+            }
 			this.GetComponent<Collider2D>().enabled = false;
 			if(thisRenderer!=null)
 			{

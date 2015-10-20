@@ -8,6 +8,8 @@ public class WeaponControl : MonoBehaviour
 	public Vector2 firingTip;
 	public float rateOfFire;
 	public GameObject projectilePrefab;
+    public AudioClip firingSound;
+    public SoundManager audioManager;
 
 	private float lastFireTime = 0f;
 	private List<GameObject> projectiles = new List<GameObject>();
@@ -32,6 +34,7 @@ public class WeaponControl : MonoBehaviour
 		{
 			lastFireTime = Time.time;
 			tempObject = GetPooledProjectile();
+            audioManager.playSound(firingSound);
 			if(tempObject != null)
 			{
 				tempObject.transform.parent = this.transform;
