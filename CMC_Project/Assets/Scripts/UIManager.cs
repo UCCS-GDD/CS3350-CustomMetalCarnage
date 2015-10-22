@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour {
 	public Vector2 vehicleLocation;
 
 	public GameObject start_button;
-    public GameObject audioManager;
+    public SoundManager audioManager;
 	public GameObject play_button;
 	public GameObject build_button;
 	public GameObject options_button;
@@ -62,7 +62,8 @@ public class UIManager : MonoBehaviour {
 				build_button.SetActive(true);
 				options_button.SetActive(true);
                 //audioManager.playSound(startClip);)
-                AudioSource.PlayClipAtPoint(startClip, Camera.main.transform.position);
+                audioManager.playSound(startClip, .4f);
+                //AudioSource.PlayClipAtPoint(startClip, Camera.main.transform.position);
 			}
 		}
 	}
@@ -192,6 +193,10 @@ public class UIManager : MonoBehaviour {
 			// Load new chassis object
 			// Instantiate new chassis object
 			tempChassis = Instantiate(Resources.Load("Chassis/"+partName), oldPosition, oldRotation) as GameObject;
+			if(partName=="Drone")
+			{
+				tempChassis.transform.rotation = Quaternion.identity;
+			}
 
 			if(tempTurret!=null)
 			{
@@ -421,11 +426,18 @@ public class UIManager : MonoBehaviour {
 		Debug.Log("tempInt="+tempInt);
 		if(tempInt>=0)
 		{
+			// PUT REMOVE WEAPON SOUND HERE
+            audioManager.playSound(audioManager.backSound, 1);
+
 			Debug.Log("Removed weapon");
 			Destroy(tempWeapons[tempInt]);
 			tempWeapons[tempInt] = null;
 			// Update TurretControl Delegates
 			tempTurret.GetComponent<TurretControl>().DelegateFireAndReload();
+		}
+		else
+		{
+			// PUT CANNOT REMOVE WEAPON SOUND HERE
 		}
 		// Sync with PlayerPrefs
 		int ii=1;
@@ -464,6 +476,7 @@ public class UIManager : MonoBehaviour {
 	public void NextLevel()
 	{
 		playerObject = GameObject.FindGameObjectWithTag("Player");
+		playerObject.transform.position = new Vector3(5f, -5f, 0f);
 		DontDestroyOnLoad(playerObject);
 
 		Application.LoadLevel(1);

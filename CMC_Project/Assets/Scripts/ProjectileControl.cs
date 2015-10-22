@@ -7,6 +7,8 @@ public class ProjectileControl : MonoBehaviour
 	public float timeAfterColl = 0f;
 	public int damage = 1;
 	public GameObject explosionPrefab;
+    public SoundManager audioManager;
+    public AudioClip explosionSound;
 
 	private GameObject tempObject;
 	private Rigidbody2D thisRigidbody;
@@ -14,11 +16,13 @@ public class ProjectileControl : MonoBehaviour
 
 	private float collisionTime = 0f;
 	private bool exploded = false;
+	private SpriteRenderer thisRenderer;
 
 	// Use this for initialization
 	void Start () 
 	{
 		thisRigidbody = this.GetComponent<Rigidbody2D>();
+		thisRenderer = this.GetComponent<SpriteRenderer>();
 		RefreshVelocity();
 	}
 
@@ -53,6 +57,15 @@ public class ProjectileControl : MonoBehaviour
 		case "Wall":
 		case "Enemy":
 			exploded = true;
+            if (explosionSound != null)
+            {
+                audioManager.playSound(explosionSound, .5f);
+            }
+			this.GetComponent<Collider2D>().enabled = false;
+			if(thisRenderer!=null)
+			{
+				thisRenderer.enabled = false;
+			}
 			collisionTime = Time.time;
 			OnHitEffects(coll.gameObject);
 			break;
@@ -62,10 +75,11 @@ public class ProjectileControl : MonoBehaviour
 
 	void OnHitEffects(GameObject other)
 	{
-//		if(other.tag == "Enemy")
-//		{
-//			//other.GetComponent<EnemyControl>().TakeDamage(damage);
-//		}
+		if(other.tag == "Enemy")
+		{
+			other.GetComponent<BomberControl>().DestroyBomber();
+
+		}
 
 		// Spawn explosion particles
 		tempObject = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
