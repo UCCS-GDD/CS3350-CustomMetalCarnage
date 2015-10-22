@@ -44,10 +44,16 @@ public class BomberControl : MonoBehaviour
 	{
 		if(coll.gameObject.CompareTag("Player"))
 		{
-			tempObject = Instantiate(explosionPrefab, transform.position, transform.rotation) as GameObject;
 			//coll.gameObject.GetComponent<PlayerControl>().TakeDamage(damage);
-            audioManager.playSound(explosionSound);
-			Destroy(this.gameObject);
+			DestroyBomber();
 		}
+	}
+
+
+	public void DestroyBomber()
+	{
+		tempObject = Instantiate(explosionPrefab, transform.position, transform.rotation) as GameObject;
+		audioManager.playSound(explosionSound);
+		Destroy(this.gameObject);
 	}
 }
