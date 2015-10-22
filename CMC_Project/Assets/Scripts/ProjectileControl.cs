@@ -77,8 +77,8 @@ public class ProjectileControl : MonoBehaviour
 	{
 		if(other.tag == "Enemy")
 		{
-			//other.GetComponent<EnemyControl>().TakeDamage(damage);
-			Destroy(other.gameObject);
+			other.GetComponent<BomberControl>().DestroyBomber();
+
 		}
 
 		// Spawn explosion particles

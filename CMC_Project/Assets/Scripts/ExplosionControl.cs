@@ -21,8 +21,7 @@ public class ExplosionControl : MonoBehaviour
 	{
 		if(coll.CompareTag("Enemy"))
 		{
-			//coll.GetComponent<EnemyControl>().TakeDamage(damage);
-			Destroy(coll.gameObject);
+			coll.GetComponent<BomberControl>().DestroyBomber();
 		}
 	}
 }
