@@ -15,17 +15,17 @@ public class JeepMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mag = GetComponent<Rigidbody2D>().velocity.magnitude / 2.5f;
+        mag = GetComponent<Rigidbody2D>().velocity.magnitude;
         if (Input.GetKey(KeyCode.W))
         {
             GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * speed, ForceMode2D.Impulse);
             if (Input.GetKey(KeyCode.A))
             {
-                transform.rotation *= new Quaternion(0f, 0f, .01f * mag, 1);
+                transform.rotation *= new Quaternion(0f, 0f, .01f, 1);
             }
             if (Input.GetKey(KeyCode.D))
             {
-                transform.rotation *= new Quaternion(0f, 0f, -.01f * mag, 1);
+                transform.rotation *= new Quaternion(0f, 0f, -.01f, 1);
             }
         }
         if (Input.GetKey(KeyCode.S))
@@ -33,11 +33,11 @@ public class JeepMovement : MonoBehaviour
             GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.down * speed, ForceMode2D.Impulse);
             if (Input.GetKey(KeyCode.A))
             {
-                transform.rotation *= new Quaternion(0f, 0f, -.01f * mag, 1);
+                transform.rotation *= new Quaternion(0f, 0f, -.01f, 1);
             }
             if (Input.GetKey(KeyCode.D))
             {
-                transform.rotation *= new Quaternion(0f, 0f, .01f * mag, 1);
+                transform.rotation *= new Quaternion(0f, 0f, .01f, 1);
             }
         }
     }
