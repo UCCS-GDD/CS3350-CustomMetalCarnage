@@ -59,7 +59,7 @@ public class ProjectileControl : MonoBehaviour
 			exploded = true;
             if (explosionSound != null)
             {
-                audioManager.playSound(explosionSound);
+                audioManager.playSound(explosionSound, .5f);
             }
 			this.GetComponent<Collider2D>().enabled = false;
 			if(thisRenderer!=null)

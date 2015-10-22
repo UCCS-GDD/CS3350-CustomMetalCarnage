@@ -24,6 +24,12 @@ public class SoundManager : MonoBehaviour {
         Debug.Log(sound + " played.");
     }
 
+    public void playSound(AudioClip sound, float volume)
+    {
+        AudioSource.PlayClipAtPoint(sound, this.transform.position, volume);
+        Debug.Log(sound + " played.");
+    }
+
     //public void playSustainedSound(AudioClip sound)
     //{        
     //    AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position);

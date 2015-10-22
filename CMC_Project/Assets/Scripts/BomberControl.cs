@@ -53,7 +53,7 @@ public class BomberControl : MonoBehaviour
 	public void DestroyBomber()
 	{
 		tempObject = Instantiate(explosionPrefab, transform.position, transform.rotation) as GameObject;
-		audioManager.playSound(explosionSound);
+		audioManager.playSound(explosionSound, .3f);
 		Destroy(this.gameObject);
 	}
 }

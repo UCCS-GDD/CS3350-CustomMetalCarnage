@@ -62,7 +62,7 @@ public class UIManager : MonoBehaviour {
 				build_button.SetActive(true);
 				options_button.SetActive(true);
                 //audioManager.playSound(startClip);)
-                audioManager.playSound(startClip);
+                audioManager.playSound(startClip, .4f);
                 //AudioSource.PlayClipAtPoint(startClip, Camera.main.transform.position);
 			}
 		}
@@ -427,7 +427,7 @@ public class UIManager : MonoBehaviour {
 		if(tempInt>=0)
 		{
 			// PUT REMOVE WEAPON SOUND HERE
-            audioManager.playSound(audioManager.backSound);
+            audioManager.playSound(audioManager.backSound, 1);
 
 			Debug.Log("Removed weapon");
 			Destroy(tempWeapons[tempInt]);
