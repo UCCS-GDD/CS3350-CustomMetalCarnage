@@ -5,6 +5,7 @@ public class CameraController : MonoBehaviour
 {
 	public Vector3 offset;
 	public float size;
+    public AudioClip levelMusic;
 
 	// Use this for initialization
 	void Start () 
@@ -12,6 +13,7 @@ public class CameraController : MonoBehaviour
 		transform.parent = GameObject.FindGameObjectWithTag("Player").transform;
 		transform.localPosition = offset;
 		transform.GetComponent<Camera> ().orthographicSize = size;
+        GameObject.FindObjectOfType<SoundManager>().playSustainedSound(levelMusic);
 	}
 	
 	// Update is called once per frame
