@@ -18,7 +18,7 @@ public class WeaponControl : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-	
+		audioManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 	}
 	
 	// Update is called once per frame

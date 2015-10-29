@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ProjectileControl : MonoBehaviour 
 {
+	public int type; // 0 for enemy projectile, 1 for player
 	public float travelSpeed = 1f;
 	public float timeAfterColl = 0f;
 	public int damage = 1;
@@ -56,18 +57,38 @@ public class ProjectileControl : MonoBehaviour
 		{
 		case "Wall":
 		case "Enemy":
-			exploded = true;
-            if (explosionSound != null)
-            {
-                audioManager.playSound(explosionSound, .5f);
-            }
-			this.GetComponent<Collider2D>().enabled = false;
-			if(thisRenderer!=null)
+			if(type==1)
 			{
-				thisRenderer.enabled = false;
+				exploded = true;
+	            if (explosionSound != null)
+	            {
+	                audioManager.playSound(explosionSound, .5f);
+	            }
+				this.GetComponent<Collider2D>().enabled = false;
+				if(thisRenderer!=null)
+				{
+					thisRenderer.enabled = false;
+				}
+				collisionTime = Time.time;
+				OnHitEffects(coll.gameObject);
 			}
-			collisionTime = Time.time;
-			OnHitEffects(coll.gameObject);
+			break;
+		case "Player":
+			if(type==0)
+			{
+				exploded = true;
+				if (explosionSound != null)
+				{
+					audioManager.playSound(explosionSound, .5f);
+				}
+				this.GetComponent<Collider2D>().enabled = false;
+				if(thisRenderer!=null)
+				{
+					thisRenderer.enabled = false;
+				}
+				collisionTime = Time.time;
+				OnHitEffects(coll.gameObject);
+			}
 			break;
 		}
 	}
@@ -75,10 +96,21 @@ public class ProjectileControl : MonoBehaviour
 
 	void OnHitEffects(GameObject other)
 	{
-		if(other.tag == "Enemy")
+		if((type==1) && (other.tag == "Enemy"))
 		{
-			other.GetComponent<BomberControl>().DestroyBomber();
+			if(other.GetComponent<BomberControl>()!=null)
+			{
+				other.GetComponent<BomberControl>().DestroyBomber();
+			}
+			else if(other.GetComponent<BasicEnemyControl>()!=null)
+			{
+				other.GetComponent<BasicEnemyControl>().TakeDamage(damage);
+			}
 
+		}
+		if((type==0) && (other.tag == "Player"))
+		{
+			other.GetComponent<PlayerControl>().TakeDamage(damage);
 		}
 
 		// Spawn explosion particles

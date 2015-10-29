@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BomberControl : MonoBehaviour 
+public class BasicEnemyControl : MonoBehaviour 
 {
+	public int health;
 	public int points;
-	public int damage;
+	public float stopDistance;
+	public float shootDistance;
 	private GameObject playerObject;
 	public float moveSpeed;
 	private Rigidbody2D thisRigidbody;
@@ -13,20 +15,29 @@ public class BomberControl : MonoBehaviour
 	private float angleToPlayer;
 	private Quaternion targetRotation;
 	public float rotationSpeed;
-    public SoundManager audioManager;
-    public AudioClip explosionSound;
-
+	public SoundManager audioManager;
+	public AudioClip explosionSound;
+	
 	public GameObject explosionPrefab;
 	private GameObject tempObject;
 
-	private GameManagerControl gameScript;
+	delegate void Shoot();
+	Shoot shoot;
 
+	private GameManagerControl gameScript;
+	
 	// Use this for initialization
 	void Start () 
 	{
 		playerObject = GameObject.FindGameObjectWithTag("Player");
 		thisRigidbody = this.GetComponent<Rigidbody2D>();
+		audioManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 		gameScript = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerControl>();
+
+		foreach(Transform child in transform)
+		{
+			shoot += child.GetComponent<WeaponControl>().FireCall;
+		}
 	}
 	
 	// Update is called once per frame
@@ -34,27 +45,45 @@ public class BomberControl : MonoBehaviour
 	{
 		tempVector = (playerObject.transform.position - transform.position).normalized;
 		forceDirection = new Vector2(tempVector.x, tempVector.y);
-		thisRigidbody.AddForce(forceDirection);
-		angleToPlayer = Mathf.Atan2(thisRigidbody.velocity.x, thisRigidbody.velocity.y) * Mathf.Rad2Deg;
+		angleToPlayer = Mathf.Atan2(tempVector.x, tempVector.y) * Mathf.Rad2Deg;
 		targetRotation = Quaternion.Euler(new Vector3(0f, 0f, -angleToPlayer));
 		transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed);
+		//Debug.Log ("Distance = " + Vector3.Distance (playerObject.transform.position, transform.position));
+		if(Vector3.Distance(playerObject.transform.position, transform.position) > stopDistance)
+		{
+			thisRigidbody.AddForce(forceDirection);
+		}
+		else
+		{
+			thisRigidbody.velocity = Vector2.zero;
+		}
+		if(Vector3.Distance(playerObject.transform.position, transform.position) < shootDistance)
+		{
+			shoot();
+		}
 		if(thisRigidbody.velocity.magnitude > moveSpeed)
 		{
 			thisRigidbody.velocity = thisRigidbody.velocity.normalized * moveSpeed;
 		}
 	}
-
+	
 	void OnCollisionEnter2D(Collision2D coll)
 	{
-		if(coll.gameObject.CompareTag("Player"))
-		{
-			//coll.gameObject.GetComponent<PlayerControl>().TakeDamage(damage);
-			DestroyBomber();
-		}
+
 	}
 
 
-	public void DestroyBomber()
+	public void TakeDamage(int incomingDamage)
+	{
+		health -= incomingDamage;
+		if(health <= 0)
+		{
+			DestroyEnemy();
+		}
+	}
+
+	
+	public void DestroyEnemy()
 	{
 		gameScript.playerScore += points;
 		tempObject = Instantiate(explosionPrefab, transform.position, transform.rotation) as GameObject;

@@ -93,6 +93,7 @@ public class UIManager : MonoBehaviour {
 					title_screen.SetActive(false);
 					name_screen.SetActive(false);
 					rotator_menu.SetActive(true);
+					// Change scenes here
 				}
 			} else{
 				//TODO: Did not work
@@ -138,7 +139,7 @@ public class UIManager : MonoBehaviour {
 		// Show Weapons
 		foreach(int weapon in lopScript.weapons)
 		{
-			Debug.Log("tempWeapons.Count="+tempWeapons.Count);
+			//Debug.Log("tempWeapons.Count="+tempWeapons.Count);
 			tempInt = 0;
 			foreach(GameObject weap in tempWeapons)
 			{
@@ -151,13 +152,13 @@ public class UIManager : MonoBehaviour {
 					break;
 				}
 			}
-			Debug.Log("Current Hardpoint "+tempInt);
+			//Debug.Log("Current Hardpoint "+tempInt);
 			if(tempInt<numHardPoints)
 			currentHardPoint = tempTurret.GetComponent<TurretControl>().hardPoints[tempInt];
 
 			if(weapon>0)
 			{
-				Debug.Log("Added with weapon id "+weapon);
+				//Debug.Log("Added with weapon id "+weapon);
 				tempWeapons.Add(Instantiate(Resources.Load("Weapon/"+lopScript.panel4.transform.GetChild(weapon-1).name), vehicleLocation, Quaternion.identity) as GameObject);
 				// Attach weapon to Turret
 				tempWeapons[tempWeapons.Count-1].transform.parent = tempTurret.transform;
@@ -167,7 +168,7 @@ public class UIManager : MonoBehaviour {
 			}
 			else
 			{
-				Debug.Log("Added null");
+				//Debug.Log("Added null");
 				tempWeapons.Add(null);
 			}
 		}
@@ -475,10 +476,6 @@ public class UIManager : MonoBehaviour {
 
 	public void NextLevel()
 	{
-		playerObject = GameObject.FindGameObjectWithTag("Player");
-		playerObject.transform.position = new Vector3(5f, -5f, 0f);
-		DontDestroyOnLoad(playerObject);
-
 		Application.LoadLevel(1);
 	}
 
