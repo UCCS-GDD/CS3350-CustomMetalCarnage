@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 public class RightClickHandler : MonoBehaviour, IPointerClickHandler 
 {
 	public GameObject uiManager;
-	private UIManager uiScript;
+	private CustomizationControl uiScript;
 
 	public GameObject ssObject;
 	private selectSettings ssScript;
@@ -13,7 +13,7 @@ public class RightClickHandler : MonoBehaviour, IPointerClickHandler
 	// Use this for initialization
 	void Start () 
 	{
-		uiScript = uiManager.GetComponent<UIManager>();
+		uiScript = uiManager.GetComponent<CustomizationControl>();
 		ssScript = ssObject.GetComponent<selectSettings>();
 	}
 

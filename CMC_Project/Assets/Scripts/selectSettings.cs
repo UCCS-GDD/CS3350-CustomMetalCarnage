@@ -8,7 +8,7 @@ public class selectSettings : MonoBehaviour {
 	public string save_key;
 
 	public GameObject uiManager;
-	private UIManager uiScript;
+	private CustomizationControl uiScript;
 
 	public GameObject loadoutObject;
 
@@ -16,7 +16,7 @@ public class selectSettings : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		uiScript = uiManager.GetComponent<UIManager>();
+		uiScript = uiManager.GetComponent<CustomizationControl>();
 
 		if (onSprite == null || offSprite == null)
 			Debug.Log ("Missing Sprite");

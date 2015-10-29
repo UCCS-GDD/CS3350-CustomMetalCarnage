@@ -13,7 +13,7 @@ public class SoundManager : MonoBehaviour {
     AudioSource loopSource;
     AudioSource persistentSource;
 	void Start () {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
         //loopSource = new AudioSource();
         loopSource = this.GetComponents<AudioSource>()[0];
         persistentSource = this.GetComponents<AudioSource>()[1];

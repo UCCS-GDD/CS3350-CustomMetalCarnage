@@ -55,11 +55,6 @@ public class loadoutPreferences : MonoBehaviour {
 		}
 
 		HighlightParts();
-
-		uiManager.GetComponent<UIManager>().InitialLoad(this);
-
-
-
 	}
 	
 	public void HighlightParts()

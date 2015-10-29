@@ -68,6 +68,10 @@ public class GameManagerControl : MonoBehaviour
 	void Update() 
 	{
 		scoreText.text = playerScore.ToString();
+		if(Input.GetButton("Submit"))
+		{
+			Application.LoadLevel(1);
+		}
 	}
 
 
