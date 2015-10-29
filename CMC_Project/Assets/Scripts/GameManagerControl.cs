@@ -26,6 +26,10 @@ public class GameManagerControl : MonoBehaviour
 
 	private UnityEngine.UI.Text scoreText;
 
+	public float shadeDimSpeed;
+	
+	private SpriteRenderer shadeSprite;
+	private UnityEngine.UI.Text gameOverText;
 
 	// Use this for initialization
 	void Awake() 
@@ -61,6 +65,8 @@ public class GameManagerControl : MonoBehaviour
 	void Start()
 	{
 		scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<UnityEngine.UI.Text>();
+		shadeSprite = GameObject.FindGameObjectWithTag("Shade").GetComponent<SpriteRenderer>();
+		gameOverText = GameObject.FindGameObjectWithTag("GameOver").GetComponent<UnityEngine.UI.Text>();
 	}
 
 
@@ -153,6 +159,41 @@ public class GameManagerControl : MonoBehaviour
 			{
 				tempWeapons.Add(null);
 			}
+		}
+	}
+
+
+	public void PlayerDeath()
+	{
+		Time.timeScale = 0f;
+		StartCoroutine("DeathMenu");
+	}
+	
+	
+	IEnumerator DeathMenu()
+	{
+		while(true)
+		{
+			if(shadeSprite.color.a < 1f)
+			{
+				shadeSprite.color = new Color(0f, 0f, 0f, shadeSprite.color.a + shadeDimSpeed); 
+				gameOverText.color = new Color(200f, 0f, 0f, gameOverText.color.a + shadeDimSpeed);
+			}
+			
+			
+			if(Input.GetButton("Submit"))
+			{
+				Time.timeScale = 1f;
+				Application.LoadLevel(1);
+			}
+
+			if(Input.GetButton("Cancel"))
+			{
+				Time.timeScale = 1f;
+				Application.LoadLevel(0);
+			}
+			
+			yield return null;
 		}
 	}
 

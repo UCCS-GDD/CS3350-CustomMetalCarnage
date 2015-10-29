@@ -69,6 +69,15 @@ public class CustomizationControl : MonoBehaviour {
 		audioManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 	}
 
+
+	void Update()
+	{
+		if(Input.GetButton("Cancel"))
+		{
+			Application.Quit();
+		}
+	}
+
 	
 	void InitializePlayer()
 	{

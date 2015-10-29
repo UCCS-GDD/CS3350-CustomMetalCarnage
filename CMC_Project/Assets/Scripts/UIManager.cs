@@ -46,6 +46,16 @@ public class UIManager : MonoBehaviour {
 	}
 	
 
+	void Update()
+	{
+		if(Input.GetButton("Cancel"))
+		{
+			Debug.Log("Exiting");
+			Application.Quit();
+		}
+	}
+
+
 	void showStart (){
 		if (start_button != null && !start_button.activeInHierarchy) {
 			start_button.SetActive(true);

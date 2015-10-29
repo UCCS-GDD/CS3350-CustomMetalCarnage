@@ -48,7 +48,7 @@ public class BomberControl : MonoBehaviour
 	{
 		if(coll.gameObject.CompareTag("Player"))
 		{
-			//coll.gameObject.GetComponent<PlayerControl>().TakeDamage(damage);
+			coll.gameObject.GetComponent<PlayerControl>().TakeDamage(damage);
 			DestroyBomber();
 		}
 	}

@@ -9,14 +9,16 @@ public class PlayerControl : MonoBehaviour
 	// Use this for initialization
 	void Start() 
 	{
-	
+
 	}
+
 	
 	// Update is called once per frame
 	void Update() 
 	{
 	
 	}
+
 
 	public void TakeDamage(int incomingDamage)
 	{
@@ -27,11 +29,19 @@ public class PlayerControl : MonoBehaviour
 		{
 			// Player dies
 			Debug.Log("Player died.");
+
+			GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerControl>().PlayerDeath();
 		}
 	}
+
 
 	void DamageFlash()
 	{
 		// Add a transparent damage image over camera, decrease it's transparency when hit
 	}
+
+
+
+
+
 }
