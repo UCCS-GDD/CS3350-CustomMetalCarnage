@@ -11,7 +11,7 @@ public class ProjectileControl : MonoBehaviour
     public SoundManager audioManager;
     public AudioClip explosionSound;
 
-	private GameObject tempObject;
+//	private GameObject tempObject;
 	private Rigidbody2D thisRigidbody;
 	private Vector2 travelVelocity;
 
@@ -114,7 +114,7 @@ public class ProjectileControl : MonoBehaviour
 		}
 
 		// Spawn explosion particles
-		tempObject = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
+		Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
 	}
 

@@ -19,7 +19,7 @@ public class BasicEnemyControl : MonoBehaviour
 	public AudioClip explosionSound;
 	
 	public GameObject explosionPrefab;
-	private GameObject tempObject;
+//	private GameObject tempObject;
 
 	delegate void Shoot();
 	Shoot shoot;
@@ -86,7 +86,7 @@ public class BasicEnemyControl : MonoBehaviour
 	public void DestroyEnemy()
 	{
 		gameScript.playerScore += points;
-		tempObject = Instantiate(explosionPrefab, transform.position, transform.rotation) as GameObject;
+		Instantiate(explosionPrefab, transform.position, transform.rotation);
 		audioManager.playSound(explosionSound, .3f);
 		Destroy(this.gameObject);
 	}

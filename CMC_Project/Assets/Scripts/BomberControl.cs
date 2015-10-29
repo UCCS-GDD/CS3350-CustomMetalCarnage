@@ -17,7 +17,7 @@ public class BomberControl : MonoBehaviour
     public AudioClip explosionSound;
 
 	public GameObject explosionPrefab;
-	private GameObject tempObject;
+//	private GameObject tempObject;
 
 	private GameManagerControl gameScript;
 
@@ -57,7 +57,7 @@ public class BomberControl : MonoBehaviour
 	public void DestroyBomber()
 	{
 		gameScript.playerScore += points;
-		tempObject = Instantiate(explosionPrefab, transform.position, transform.rotation) as GameObject;
+		Instantiate(explosionPrefab, transform.position, transform.rotation);
 		audioManager.playSound(explosionSound, .3f);
 		Destroy(this.gameObject);
 	}
