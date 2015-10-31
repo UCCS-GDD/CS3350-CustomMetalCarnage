@@ -52,7 +52,7 @@ public class ProjectileControl : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D coll)
 	{
-		Debug.Log ("Hit " + coll.gameObject.tag);
+		//Debug.Log("Hit " + coll.gameObject.tag);
 		switch(coll.gameObject.tag)
 		{
 		case "Wall":

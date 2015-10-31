@@ -18,13 +18,17 @@ public class selectSettings : MonoBehaviour {
 
 		uiScript = uiManager.GetComponent<CustomizationControl>();
 
-		if (onSprite == null || offSprite == null)
-			Debug.Log ("Missing Sprite");
+		if(onSprite == null || offSprite == null)
+		{
+			//Debug.Log("Missing Sprite");
+		}
 
 		buttons = gameObject.GetComponentsInChildren<Button>();
-		if (buttons != null) {
-			Debug.Log ("Found " + buttons.Length + " buttons ");
-		} else {
+		if (buttons != null) 
+		{
+			//Debug.Log("Found " + buttons.Length + " buttons ");
+		}else 
+		{
 			//Debug.Log("NO BUTTONS FOUND!!!!");
 		}
 	}
@@ -35,11 +39,11 @@ public class selectSettings : MonoBehaviour {
 	}
 
 	public void onSelection(GameObject selected){
-		Debug.Log (selected.ToString());
+		//Debug.Log(selected.ToString());
 		if (buttons != null) {
 			foreach(Button b in buttons){
 				b.image.sprite = offSprite;
-				////Debug.Log(b.ToString);
+				//Debug.Log(b.ToString);
 			}
 			if(!save_key.Equals("Weapon"))
 			{
@@ -59,7 +63,7 @@ public class selectSettings : MonoBehaviour {
 			foreach(Button b in buttons)
 			{
 				b.image.sprite = offSprite;
-				////Debug.Log(b.ToString);
+				//Debug.Log(b.ToString);
 			}	
 		}
 	}
