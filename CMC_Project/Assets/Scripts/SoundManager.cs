@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour {
     public AudioClip largeTick;
     public AudioClip backSound;
     public AudioClip menuMusic;
+	public AudioClip levelMusic;
     AudioSource loopSource;
     AudioSource persistentSource;
 	void Start () {
@@ -20,8 +21,18 @@ public class SoundManager : MonoBehaviour {
         //DontDestroyOnLoad(persistentSource);
         //Debug.Log(loopSource);
         //Debug.Log(loopSource.clip);
-        playSustainedSound(menuMusic);
-        
+		switch(Application.loadedLevel)
+		{
+		case 0:
+        	playSustainedSound(menuMusic);
+			break;
+		case 1:
+			playSustainedSound(menuMusic);
+			break;
+		case 2:
+			playSustainedSound(levelMusic);
+			break;   
+		}
 	}
 	
 	// Update is called once per frame
@@ -47,7 +58,7 @@ public class SoundManager : MonoBehaviour {
         loopSource.clip = sound;
         loopSource.loop = true;
         loopSource.Play();
-        //Debug.Log(sound + " played.");
+        //Debug.Log(sound + " played. sus");
     }
 
     public void playPersistentSound(AudioClip sound)
@@ -55,6 +66,6 @@ public class SoundManager : MonoBehaviour {
         //persistentSource.transform.position = this.transform.position;
         persistentSource.clip = sound;
         persistentSource.Play();
-        //Debug.Log(sound + " played.");
+        //Debug.Log(sound + " played. pers");
     }
 }
