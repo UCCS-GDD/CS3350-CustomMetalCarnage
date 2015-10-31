@@ -49,7 +49,7 @@ public class GameManagerControl : MonoBehaviour
 			if(PlayerPrefs.HasKey("Weapon_"+ii))
 			{
 				weaponsNum.Add(PlayerPrefs.GetInt("Weapon_"+ii));
-				Debug.Log("Weapon_"+ii);
+				//Debug.Log("Weapon_"+ii);
 				ii++;
 			}
 			else
@@ -142,7 +142,7 @@ public class GameManagerControl : MonoBehaviour
 					break;
 				}
 			}
-			//Debug.Log("Current Hardpoint "+tempInt);
+			////Debug.Log("Current Hardpoint "+tempInt);
 			if(tempInt<numHardPoints)
 				currentHardPoint = tempTurret.GetComponent<TurretControl>().hardPoints[tempInt];
 			

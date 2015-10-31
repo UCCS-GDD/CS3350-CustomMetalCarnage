@@ -28,7 +28,7 @@ public class PlayerControl : MonoBehaviour
 		if(health <= 0)
 		{
 			// Player dies
-			Debug.Log("Player died.");
+			//Debug.Log("Player died.");
 
 			GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerControl>().PlayerDeath();
 		}

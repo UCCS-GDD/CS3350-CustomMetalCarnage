@@ -25,7 +25,7 @@ public class selectSettings : MonoBehaviour {
 		if (buttons != null) {
 			Debug.Log ("Found " + buttons.Length + " buttons ");
 		} else {
-			Debug.Log("NO BUTTONS FOUND!!!!");
+			//Debug.Log("NO BUTTONS FOUND!!!!");
 		}
 	}
 	
@@ -39,7 +39,7 @@ public class selectSettings : MonoBehaviour {
 		if (buttons != null) {
 			foreach(Button b in buttons){
 				b.image.sprite = offSprite;
-				//Debug.Log(b.ToString);
+				////Debug.Log(b.ToString);
 			}
 			if(!save_key.Equals("Weapon"))
 			{
@@ -59,7 +59,7 @@ public class selectSettings : MonoBehaviour {
 			foreach(Button b in buttons)
 			{
 				b.image.sprite = offSprite;
-				//Debug.Log(b.ToString);
+				////Debug.Log(b.ToString);
 			}	
 		}
 	}

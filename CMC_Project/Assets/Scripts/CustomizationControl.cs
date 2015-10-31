@@ -50,7 +50,7 @@ public class CustomizationControl : MonoBehaviour {
 			if(PlayerPrefs.HasKey("Weapon_"+ii))
 			{
 				weaponsNum.Add(PlayerPrefs.GetInt("Weapon_"+ii));
-				Debug.Log("Weapon_"+ii);
+				//Debug.Log("Weapon_"+ii);
 				ii++;
 			}
 			else
@@ -140,7 +140,7 @@ public class CustomizationControl : MonoBehaviour {
 					break;
 				}
 			}
-			//Debug.Log("Current Hardpoint "+tempInt);
+			////Debug.Log("Current Hardpoint "+tempInt);
 			if(tempInt<numHardPoints)
 				currentHardPoint = tempTurret.GetComponent<TurretControl>().hardPoints[tempInt];
 			
@@ -263,7 +263,7 @@ public class CustomizationControl : MonoBehaviour {
 				{
 					if((tempWeapons.Count>=tempInt) && (tempWeapons[tempInt-1]!=null))
 					{
-						Debug.Log(tempWeapons[tempInt-1].name);
+						//Debug.Log(tempWeapons[tempInt-1].name);
 						switch(tempWeapons[tempInt-1].name)
 						{
 						case "MachineGun(Clone)":
@@ -324,14 +324,14 @@ public class CustomizationControl : MonoBehaviour {
 					}
 				}
 				currentHardPoint = tempTurret.GetComponent<TurretControl>().hardPoints[tempInt];
-				Debug.Log("Current Hard point: "+tempInt);
+				//Debug.Log("Current Hard point: "+tempInt);
 				
 				tempWeapons.Insert(tempInt, Instantiate(compareWeapon, vehicleLocation, Quaternion.identity) as GameObject);
 				
 				if(tempWeapons.Count>=(tempInt+2))
 					tempWeapons.RemoveAt(tempInt+1);
 				
-				Debug.Log("Added "+partName);
+				//Debug.Log("Added "+partName);
 				
 				// Sync with PlayerPrefs
 				int ii=1;
@@ -341,7 +341,7 @@ public class CustomizationControl : MonoBehaviour {
 					{
 						if((tempWeapons.Count>=ii) && (tempWeapons[ii-1]!=null))
 						{
-							Debug.Log(tempWeapons[ii-1].name);
+							//Debug.Log(tempWeapons[ii-1].name);
 							switch(tempWeapons[ii-1].name)
 							{
 							case "MachineGun(Clone)":
@@ -410,13 +410,13 @@ public class CustomizationControl : MonoBehaviour {
 				tempInt = i;
 			}
 		}
-		Debug.Log("tempInt="+tempInt);
+		//Debug.Log("tempInt="+tempInt);
 		if(tempInt>=0)
 		{
 			// PUT REMOVE WEAPON SOUND HERE
 			audioManager.playSound(audioManager.backSound, 1);
 			
-			Debug.Log("Removed weapon");
+			//Debug.Log("Removed weapon");
 			Destroy(tempWeapons[tempInt]);
 			tempWeapons[tempInt] = null;
 			// Update TurretControl Delegates

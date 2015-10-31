@@ -18,8 +18,8 @@ public class SoundManager : MonoBehaviour {
         loopSource = this.GetComponents<AudioSource>()[0];
         persistentSource = this.GetComponents<AudioSource>()[1];
         //DontDestroyOnLoad(persistentSource);
-        Debug.Log(loopSource);
-        Debug.Log(loopSource.clip);
+        //Debug.Log(loopSource);
+        //Debug.Log(loopSource.clip);
         playSustainedSound(menuMusic);
         
 	}
@@ -32,13 +32,13 @@ public class SoundManager : MonoBehaviour {
     public void playSound(AudioClip sound)
     {
         AudioSource.PlayClipAtPoint(sound, this.transform.position);
-        Debug.Log(sound + " played.");
+        //Debug.Log(sound + " played.");
     }
 
     public void playSound(AudioClip sound, float volume)
     {
         AudioSource.PlayClipAtPoint(sound, this.transform.position, volume);
-        Debug.Log(sound + " played.");
+        //Debug.Log(sound + " played.");
     }
 
     public void playSustainedSound(AudioClip sound)
@@ -47,7 +47,7 @@ public class SoundManager : MonoBehaviour {
         loopSource.clip = sound;
         loopSource.loop = true;
         loopSource.Play();
-        Debug.Log(sound + " played.");
+        //Debug.Log(sound + " played.");
     }
 
     public void playPersistentSound(AudioClip sound)
@@ -55,6 +55,6 @@ public class SoundManager : MonoBehaviour {
         //persistentSource.transform.position = this.transform.position;
         persistentSource.clip = sound;
         persistentSource.Play();
-        Debug.Log(sound + " played.");
+        //Debug.Log(sound + " played.");
     }
 }

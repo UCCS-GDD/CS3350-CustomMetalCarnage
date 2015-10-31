@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour {
 	{
 		if(Input.GetButton("Cancel"))
 		{
-			Debug.Log("Exiting");
+			//Debug.Log("Exiting");
 			Application.Quit();
 		}
 	}
@@ -98,7 +98,7 @@ public class UIManager : MonoBehaviour {
 			string name = player_name.text;
 			if(saveScreenName(name)){
 			//TODO:continue
-				Debug.Log("Success in saving name!" + name);
+				//Debug.Log("Success in saving name!" + name);
 				if(title_screen != null && rotator_menu != null){
 					title_screen.SetActive(false);
 					name_screen.SetActive(false);
@@ -150,7 +150,7 @@ public class UIManager : MonoBehaviour {
 //		// Show Weapons
 //		foreach(int weapon in lopScript.weapons)
 //		{
-//			//Debug.Log("tempWeapons.Count="+tempWeapons.Count);
+//			////Debug.Log("tempWeapons.Count="+tempWeapons.Count);
 //			tempInt = 0;
 //			foreach(GameObject weap in tempWeapons)
 //			{
@@ -163,13 +163,13 @@ public class UIManager : MonoBehaviour {
 //					break;
 //				}
 //			}
-//			//Debug.Log("Current Hardpoint "+tempInt);
+//			////Debug.Log("Current Hardpoint "+tempInt);
 //			if(tempInt<numHardPoints)
 //			currentHardPoint = tempTurret.GetComponent<TurretControl>().hardPoints[tempInt];
 //
 //			if(weapon>0)
 //			{
-//				//Debug.Log("Added with weapon id "+weapon);
+//				////Debug.Log("Added with weapon id "+weapon);
 //				tempWeapons.Add(Instantiate(Resources.Load("Weapon/"+lopScript.panel4.transform.GetChild(weapon-1).name), vehicleLocation, Quaternion.identity) as GameObject);
 //				// Attach weapon to Turret
 //				tempWeapons[tempWeapons.Count-1].transform.parent = tempTurret.transform;
@@ -179,7 +179,7 @@ public class UIManager : MonoBehaviour {
 //			}
 //			else
 //			{
-//				//Debug.Log("Added null");
+//				////Debug.Log("Added null");
 //				tempWeapons.Add(null);
 //			}
 //		}
@@ -288,7 +288,7 @@ public class UIManager : MonoBehaviour {
 //				{
 //					if((tempWeapons.Count>=tempInt) && (tempWeapons[tempInt-1]!=null))
 //					{
-//						Debug.Log(tempWeapons[tempInt-1].name);
+//						//Debug.Log(tempWeapons[tempInt-1].name);
 //						switch(tempWeapons[tempInt-1].name)
 //						{
 //						case "MachineGun(Clone)":
@@ -349,14 +349,14 @@ public class UIManager : MonoBehaviour {
 //					}
 //				}
 //				currentHardPoint = tempTurret.GetComponent<TurretControl>().hardPoints[tempInt];
-//				Debug.Log("Current Hard point: "+tempInt);
+//				//Debug.Log("Current Hard point: "+tempInt);
 //
 //				tempWeapons.Insert(tempInt, Instantiate(compareWeapon, vehicleLocation, Quaternion.identity) as GameObject);
 //
 //				if(tempWeapons.Count>=(tempInt+2))
 //					tempWeapons.RemoveAt(tempInt+1);
 //
-//				Debug.Log("Added "+partName);
+//				//Debug.Log("Added "+partName);
 //
 //				// Sync with PlayerPrefs
 //				int ii=1;
@@ -366,7 +366,7 @@ public class UIManager : MonoBehaviour {
 //					{
 //						if((tempWeapons.Count>=ii) && (tempWeapons[ii-1]!=null))
 //						{
-//							Debug.Log(tempWeapons[ii-1].name);
+//							//Debug.Log(tempWeapons[ii-1].name);
 //							switch(tempWeapons[ii-1].name)
 //							{
 //							case "MachineGun(Clone)":
@@ -435,13 +435,13 @@ public class UIManager : MonoBehaviour {
 //				tempInt = i;
 //			}
 //		}
-//		Debug.Log("tempInt="+tempInt);
+//		//Debug.Log("tempInt="+tempInt);
 //		if(tempInt>=0)
 //		{
 //			// PUT REMOVE WEAPON SOUND HERE
 //            audioManager.playSound(audioManager.backSound, 1);
 //
-//			Debug.Log("Removed weapon");
+//			//Debug.Log("Removed weapon");
 //			Destroy(tempWeapons[tempInt]);
 //			tempWeapons[tempInt] = null;
 //			// Update TurretControl Delegates

@@ -21,7 +21,7 @@ public class RightClickHandler : MonoBehaviour, IPointerClickHandler
 	{
 		if(eventData.button == PointerEventData.InputButton.Right)
 		{
-			Debug.Log("Right "+this.gameObject.name);
+			//Debug.Log("Right "+this.gameObject.name);
 			uiScript.RemoveWeapon(this.gameObject.name);
 			ssScript.onSelection();
 		}

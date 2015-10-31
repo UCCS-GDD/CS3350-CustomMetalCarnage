@@ -41,7 +41,7 @@ public class loadoutPreferences : MonoBehaviour {
 				if(PlayerPrefs.HasKey("Weapon_"+ii))
 				{
 					weapons.Add(PlayerPrefs.GetInt("Weapon_"+ii));
-					Debug.Log("Weapon_"+ii);
+					//Debug.Log("Weapon_"+ii);
 					ii++;
 				}
 				else
