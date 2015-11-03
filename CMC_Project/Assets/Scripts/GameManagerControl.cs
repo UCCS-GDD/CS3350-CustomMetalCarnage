@@ -98,7 +98,7 @@ public class GameManagerControl : MonoBehaviour
 			{
 				highScoreText2.color = beatScoreColor;
 				GameObject.FindGameObjectWithTag("HighScore").transform.parent.GetComponent<UnityEngine.UI.Text>().color = beatScoreColor;
-				Debug.Log("Color change");
+				//Debug.Log("Color change");
 			}
 			highScore = playerScore;
 			highScoreText1.text = highScore.ToString();

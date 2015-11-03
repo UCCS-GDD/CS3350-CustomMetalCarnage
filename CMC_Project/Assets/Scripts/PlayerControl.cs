@@ -14,10 +14,13 @@ public class PlayerControl : MonoBehaviour
 	// Use this for initialization
 	void Start() 
 	{
-		damageFlash = GameObject.FindGameObjectWithTag("DamageFlash").GetComponent<SpriteRenderer>();
-		maxHealth = health;
-		healthFill = GameObject.FindGameObjectWithTag("HealthFill").GetComponent<RectTransform>();
-		healthFillRed = GameObject.FindGameObjectWithTag("HealthFillRed").GetComponent<RectTransform>();
+		if(Application.loadedLevel > 1)
+		{
+			damageFlash = GameObject.FindGameObjectWithTag("DamageFlash").GetComponent<SpriteRenderer>();
+			maxHealth = health;
+			healthFill = GameObject.FindGameObjectWithTag("HealthFill").GetComponent<RectTransform>();
+			healthFillRed = GameObject.FindGameObjectWithTag("HealthFillRed").GetComponent<RectTransform>();
+		}
 	}
 
 	
