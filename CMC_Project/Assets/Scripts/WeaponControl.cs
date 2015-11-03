@@ -10,7 +10,9 @@ public class WeaponControl : MonoBehaviour
 	public GameObject projectilePrefab;
     public AudioClip firingSound;
     public SoundManager audioManager;
+	public GameObject readyPrefab;
 
+	private GameObject readyObject;
 	private float lastFireTime = 0f;
 	private List<GameObject> projectiles = new List<GameObject>();
 	private GameObject tempObject;
@@ -19,12 +21,21 @@ public class WeaponControl : MonoBehaviour
 	void Start () 
 	{
 		audioManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+		if(readyPrefab!=null)
+		{
+			readyObject = Instantiate(readyPrefab, transform.position, transform.rotation) as GameObject;
+			readyObject.transform.parent = transform;
+			readyObject.transform.localPosition = new Vector3(firingTip.x, firingTip.y, 0f);
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-	
+		if((this!=null)&& (readyObject!=null) && (Time.time > ((1f/rateOfFire)+lastFireTime)))
+		{
+			readyObject.SetActive(true);
+		}
 	}
 
 
@@ -32,6 +43,10 @@ public class WeaponControl : MonoBehaviour
 	{
 		if((this!=null) && (Time.time > ((1f/rateOfFire)+lastFireTime)))
 		{
+			if(readyObject!=null)
+			{
+				readyObject.SetActive(false);
+			}
 			lastFireTime = Time.time;
 			tempObject = GetPooledProjectile();
             audioManager.playSound(firingSound, .3f);
