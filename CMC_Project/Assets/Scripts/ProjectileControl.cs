@@ -59,7 +59,7 @@ public class ProjectileControl : MonoBehaviour
 			exploded = true;
 			if (explosionSound != null)
 			{
-				audioManager.playSound(explosionSound, .5f);
+				audioManager.playModulatedSound(explosionSound, .5f);
 			}
 			this.GetComponent<Collider2D>().enabled = false;
 			if(thisRenderer!=null)
@@ -75,7 +75,7 @@ public class ProjectileControl : MonoBehaviour
 				exploded = true;
 	            if (explosionSound != null)
 	            {
-	                audioManager.playSound(explosionSound, .5f);
+	                audioManager.playModulatedSound(explosionSound, .5f);
 	            }
 				this.GetComponent<Collider2D>().enabled = false;
 				if(thisRenderer!=null)
@@ -92,7 +92,7 @@ public class ProjectileControl : MonoBehaviour
 				exploded = true;
 				if (explosionSound != null)
 				{
-					audioManager.playSound(explosionSound, .5f);
+					audioManager.playModulatedSound(explosionSound, .5f);
 				}
 				this.GetComponent<Collider2D>().enabled = false;
 				if(thisRenderer!=null)

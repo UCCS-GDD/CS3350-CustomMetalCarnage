@@ -72,7 +72,7 @@ public class UIManager : MonoBehaviour {
 				build_button.SetActive(true);
 				options_button.SetActive(true);
                 //audioManager.playSound(startClip);)
-                audioManager.playSound(startClip, .4f);
+                audioManager.playSoundAtVolume(startClip, .4f);
                 //AudioSource.PlayClipAtPoint(startClip, Camera.main.transform.position);
 			}
 		}

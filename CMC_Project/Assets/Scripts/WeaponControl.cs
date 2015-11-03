@@ -49,7 +49,7 @@ public class WeaponControl : MonoBehaviour
 			}
 			lastFireTime = Time.time;
 			tempObject = GetPooledProjectile();
-            audioManager.playSound(firingSound, .3f);
+            audioManager.playModulatedSound(firingSound, .3f);
 			if(tempObject != null)
 			{
 				tempObject.transform.parent = this.transform;

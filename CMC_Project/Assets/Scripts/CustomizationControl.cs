@@ -414,7 +414,7 @@ public class CustomizationControl : MonoBehaviour {
 		if(tempInt>=0)
 		{
 			// PUT REMOVE WEAPON SOUND HERE
-			audioManager.playSound(audioManager.backSound, 1);
+			audioManager.playStandardSound(audioManager.backSound);
 			
 			//Debug.Log("Removed weapon");
 			Destroy(tempWeapons[tempInt]);

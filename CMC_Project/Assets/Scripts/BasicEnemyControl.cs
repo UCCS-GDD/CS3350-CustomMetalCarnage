@@ -84,7 +84,7 @@ public class BasicEnemyControl : MonoBehaviour
 	{
 		GameManagerControl.playerScore += points;
 		Instantiate(explosionPrefab, transform.position, transform.rotation);
-		audioManager.playSound(explosionSound, .3f);
+		audioManager.playModulatedSound(explosionSound, .3f);
 		Destroy(this.gameObject);
 	}
 }
