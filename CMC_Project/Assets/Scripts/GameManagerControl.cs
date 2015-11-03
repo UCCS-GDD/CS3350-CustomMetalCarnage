@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class GameManagerControl : MonoBehaviour 
 {
-	public int playerScore = 0;
+	public static int playerScore = 0;
+	private int highScore;
 
 	private int chassisNum;
 	private int turretNum;
@@ -24,18 +25,22 @@ public class GameManagerControl : MonoBehaviour
 	private int tempInt;
 	private TurretControl.HardPoint currentHardPoint;
 
-	private UnityEngine.UI.Text scoreText;
+	private UnityEngine.UI.Text scoreText1;
+	private UnityEngine.UI.Text scoreText2;
+	private UnityEngine.UI.Text highScoreText1;
+	private UnityEngine.UI.Text highScoreText2;
+
 
 	public float shadeDimSpeed;
 	
 	private SpriteRenderer shadeSprite;
 	private UnityEngine.UI.Text gameOverText;
 
+	public Color beatScoreColor;
+
 	// Use this for initialization
 	void Awake() 
 	{
-		playerScore = 0;
-
 		vehicleLocation = new Vector3(5f, -5f, 0f);
 
 		if(PlayerPrefs.HasKey("Chassis"))
@@ -64,16 +69,44 @@ public class GameManagerControl : MonoBehaviour
 
 	void Start()
 	{
-		scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<UnityEngine.UI.Text>();
+		scoreText1 = GameObject.FindGameObjectWithTag("Score").GetComponent<UnityEngine.UI.Text>();
+		scoreText2 = GameObject.FindGameObjectWithTag("Score2").GetComponent<UnityEngine.UI.Text>();
+		highScoreText1 = GameObject.FindGameObjectWithTag("HighScore").GetComponent<UnityEngine.UI.Text>();
+		highScoreText2 = GameObject.FindGameObjectWithTag("HighScore2").GetComponent<UnityEngine.UI.Text>();
 		shadeSprite = GameObject.FindGameObjectWithTag("Shade").GetComponent<SpriteRenderer>();
 		gameOverText = GameObject.FindGameObjectWithTag("GameOver").GetComponent<UnityEngine.UI.Text>();
+
+		playerScore = 0;
+		if(PlayerPrefs.HasKey("HighScore"))
+		{
+			highScore = PlayerPrefs.GetInt("HighScore");
+			highScoreText1.text = highScore.ToString();
+			highScoreText2.text = highScore.ToString();
+		}
 	}
 
 
 	// Update is called once per frame
 	void Update() 
 	{
-		scoreText.text = playerScore.ToString();
+		scoreText1.text = playerScore.ToString();
+		scoreText2.text = playerScore.ToString();
+
+		if(playerScore > highScore)
+		{
+			if(highScoreText2.color != beatScoreColor)
+			{
+				highScoreText2.color = beatScoreColor;
+				GameObject.FindGameObjectWithTag("HighScore").transform.parent.GetComponent<UnityEngine.UI.Text>().color = beatScoreColor;
+				Debug.Log("Color change");
+			}
+			highScore = playerScore;
+			highScoreText1.text = highScore.ToString();
+			highScoreText2.text = highScore.ToString();
+
+			PlayerPrefs.SetInt("HighScore", highScore);
+		}
+
 		if(Input.GetButton("Submit"))
 		{
 			Application.LoadLevel(1);

@@ -24,15 +24,12 @@ public class BasicEnemyControl : MonoBehaviour
 	delegate void Shoot();
 	Shoot shoot;
 
-	private GameManagerControl gameScript;
-	
 	// Use this for initialization
 	void Start () 
 	{
 		playerObject = GameObject.FindGameObjectWithTag("Player");
 		thisRigidbody = this.GetComponent<Rigidbody2D>();
 		audioManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
-		gameScript = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerControl>();
 
 		foreach(Transform child in transform)
 		{
@@ -85,7 +82,7 @@ public class BasicEnemyControl : MonoBehaviour
 	
 	public void DestroyEnemy()
 	{
-		gameScript.playerScore += points;
+		GameManagerControl.playerScore += points;
 		Instantiate(explosionPrefab, transform.position, transform.rotation);
 		audioManager.playSound(explosionSound, .3f);
 		Destroy(this.gameObject);

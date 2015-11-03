@@ -19,14 +19,11 @@ public class BomberControl : MonoBehaviour
 	public GameObject explosionPrefab;
 //	private GameObject tempObject;
 
-	private GameManagerControl gameScript;
-
 	// Use this for initialization
 	void Start () 
 	{
 		playerObject = GameObject.FindGameObjectWithTag("Player");
 		thisRigidbody = this.GetComponent<Rigidbody2D>();
-		gameScript = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerControl>();
 	}
 	
 	// Update is called once per frame
@@ -56,7 +53,7 @@ public class BomberControl : MonoBehaviour
 
 	public void DestroyBomber()
 	{
-		gameScript.playerScore += points;
+		GameManagerControl.playerScore += points;
 		Instantiate(explosionPrefab, transform.position, transform.rotation);
 		audioManager.playSound(explosionSound, .3f);
 		Destroy(this.gameObject);
