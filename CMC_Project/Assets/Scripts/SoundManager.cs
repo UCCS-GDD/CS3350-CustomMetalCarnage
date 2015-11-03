@@ -119,7 +119,7 @@ public class SoundManager : MonoBehaviour {
     {
         
         oneShotPrefab.GetComponent<AudioSource>().clip = sound;
-        oneShotPrefab.GetComponent<AudioSource>().pitch = (Random.Range(75, 125))/100f;
+        oneShotPrefab.GetComponent<AudioSource>().pitch = (Random.Range(20, 180))/100f;
         Random.seed = Random.seed + (int)Random.value * 100;
         oneShotPrefab.GetComponent<AudioSource>().volume = volume;
         Instantiate(oneShotPrefab, this.transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
