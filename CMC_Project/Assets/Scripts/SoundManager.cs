@@ -17,6 +17,13 @@ public class SoundManager : MonoBehaviour {
     GameObject prefabInstance;
     AudioSource loopSource;
     AudioSource persistentSource;
+
+	void Awake()
+	{
+		Time.timeScale = 1f;
+	}
+
+
 	void Start () {
         //newLoadedLevel = true;
         //persistentSource = new AudioSource();
