@@ -40,10 +40,25 @@ public class CustomizationControl : MonoBehaviour {
 	void Awake() 
 	{				
 		if(PlayerPrefs.HasKey("Chassis"))
+		{
 			chassisNum = PlayerPrefs.GetInt("Chassis");
+		}
+		else 
+		{
+			PlayerPrefs.SetInt("Chassis", 1);
+			chassisNum = 1;
+		}
+
 		if(PlayerPrefs.HasKey("Turret"))
+		{
 			turretNum = PlayerPrefs.GetInt("Turret");
-		
+		}
+		else
+		{
+			PlayerPrefs.SetInt("Turret", 1);
+			turretNum = 1;
+		}
+
 		int ii = 1;
 		while(true)
 		{
