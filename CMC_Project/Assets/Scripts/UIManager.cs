@@ -12,9 +12,12 @@ public class UIManager : MonoBehaviour {
 	public GameObject play_button;
 	public GameObject build_button;
 	public GameObject options_button;
+    public GameObject back_button;
 	public GameObject name_screen;
 	public InputField player_name;
 	public GameObject title_screen;
+    public GameObject title_text;
+    public GameObject help_screen;
 	public GameObject rotator_menu;
     public AudioClip startClip;
 
@@ -71,6 +74,7 @@ public class UIManager : MonoBehaviour {
 				play_button.SetActive(true);
 				build_button.SetActive(true);
 				options_button.SetActive(true);
+                back_button.SetActive(false);
                 //audioManager.playSound(startClip);)
                 audioManager.playSoundAtVolume(startClip, .4f);
                 //AudioSource.PlayClipAtPoint(startClip, Camera.main.transform.position);
@@ -84,6 +88,7 @@ public class UIManager : MonoBehaviour {
 			play_button.SetActive(false);
 			build_button.SetActive(false);
 			options_button.SetActive(false);
+            back_button.SetActive(true);
 			name_screen.SetActive(true);
 			if(PlayerPrefs.HasKey("PlayerName")){
 				player_name.text = getScreenName ();
@@ -91,6 +96,40 @@ public class UIManager : MonoBehaviour {
 
 		}
 	}
+    public void showHelpScreen()
+    {
+        play_button.SetActive(false);
+        build_button.SetActive(false);
+        options_button.SetActive(false);
+        title_text.SetActive(false);
+        back_button.SetActive(true);
+        help_screen.SetActive(true);
+    }
+
+    public void backToPreviousMenu()
+    {
+        if(name_screen.activeInHierarchy && name_screen != null)
+        {
+            name_screen.SetActive(false);
+            play_button.SetActive(true);
+            build_button.SetActive(true);
+            options_button.SetActive(true);
+            back_button.SetActive(false);
+        }
+        else if(help_screen.activeInHierarchy && help_screen != null)
+        {
+            help_screen.SetActive(false);
+            play_button.SetActive(true);
+            build_button.SetActive(true);
+            options_button.SetActive(true);
+            title_text.SetActive(true);
+            back_button.SetActive(false);
+        }
+        else if(Application.loadedLevel == 1)
+        {
+            Application.LoadLevel(0);
+        }
+    }
 
 
 	public void submitName(){
@@ -112,6 +151,7 @@ public class UIManager : MonoBehaviour {
 			}
 		}
 	}
+
 
 
 	bool saveScreenName(string name){
