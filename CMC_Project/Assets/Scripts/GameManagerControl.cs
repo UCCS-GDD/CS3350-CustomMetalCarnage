@@ -107,10 +107,10 @@ public class GameManagerControl : MonoBehaviour
 			PlayerPrefs.SetInt("HighScore", highScore);
 		}
 
-		if(Input.GetButton("Submit"))
-		{
-			Application.LoadLevel(1);
-		}
+//		if(Input.GetButton("Submit"))
+//		{
+//			Application.LoadLevel(1);
+//		}
 	}
 
 
