@@ -6,6 +6,7 @@ public class JeepMovement : MonoBehaviour
     [Range(1, 10)]
     public int speed;
     public float mag;
+	public float turnRate = 0.01f;
     // Use this for initialization
     void Start()
     {
@@ -21,11 +22,11 @@ public class JeepMovement : MonoBehaviour
             GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * speed, ForceMode2D.Impulse);
             if (Input.GetKey(KeyCode.A))
             {
-                transform.rotation *= new Quaternion(0f, 0f, .01f, 1);
+				transform.rotation *= new Quaternion(0f, 0f, turnRate, 1);
             }
             if (Input.GetKey(KeyCode.D))
             {
-                transform.rotation *= new Quaternion(0f, 0f, -.01f, 1);
+				transform.rotation *= new Quaternion(0f, 0f, -turnRate, 1);
             }
         }
         if (Input.GetKey(KeyCode.S))
@@ -33,11 +34,11 @@ public class JeepMovement : MonoBehaviour
             GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.down * speed, ForceMode2D.Impulse);
             if (Input.GetKey(KeyCode.A))
             {
-                transform.rotation *= new Quaternion(0f, 0f, -.01f, 1);
+				transform.rotation *= new Quaternion(0f, 0f, -turnRate, 1);
             }
             if (Input.GetKey(KeyCode.D))
             {
-                transform.rotation *= new Quaternion(0f, 0f, .01f, 1);
+				transform.rotation *= new Quaternion(0f, 0f, turnRate, 1);
             }
         }
     }
