@@ -37,6 +37,8 @@ public class GameManagerControl : MonoBehaviour
 	private UnityEngine.UI.Text gameOverText;
 
 	public Color beatScoreColor;
+    public GameObject retry_Button;
+    public GameObject menu_Button;
 
 	// Use this for initialization
 	void Awake() 
@@ -212,22 +214,34 @@ public class GameManagerControl : MonoBehaviour
 				shadeSprite.color = new Color(0f, 0f, 0f, shadeSprite.color.a + shadeDimSpeed); 
 				gameOverText.color = new Color(200f, 0f, 0f, gameOverText.color.a + shadeDimSpeed);
 			}
-			
-			
+
+            retry_Button.SetActive(true);
+			menu_Button.SetActive(true);
+
 			if(Input.GetButton("Submit"))
 			{
-				Time.timeScale = 1f;
-				Application.LoadLevel(1);
+                Retry();
 			}
 
 			if(Input.GetButton("Cancel"))
 			{
-				Time.timeScale = 1f;
-				Application.LoadLevel(0);
+                QuitToMenu();
 			}
 			
 			yield return null;
 		}
 	}
+
+    public void Retry()
+    {
+        Time.timeScale = 1f;
+        Application.LoadLevel(1);
+    }
+
+    public void QuitToMenu()
+    {
+        Time.timeScale = 1f;
+        Application.LoadLevel(0);
+    }
 
 }
