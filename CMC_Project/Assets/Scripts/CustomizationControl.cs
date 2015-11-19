@@ -488,6 +488,10 @@ public class CustomizationControl : MonoBehaviour {
 		
 	}
 	
+    public void PreviousLevel()
+    {
+        Application.LoadLevel(0);
+    }
 	
 	public void NextLevel()
 	{

@@ -2,9 +2,9 @@ Initialize engine version: 5.2.1f1 (44735ea161b3)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: Intel(R) HD Graphics 4600 (ID=0x416)
-    Vendor:   Intel
-    VRAM:     128 MB
+    Renderer: NVIDIA GeForce GTX 860M (ID=0x1392)
+    Vendor:   NVIDIA
+    VRAM:     1995 MB
 Begin MonoManager ReloadAssembly
 Platform assembly: C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\UnityEngine.dll into Unity Child Domain
@@ -15,126 +15,78 @@ Loading C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Met
 Platform assembly: C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.151 seconds
+- Completed reload, in  0.133 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\Josh\Documents\CS3350-CustomMetalCarnage\CMC_Project\Custom Metal Carnage_Data\Managed\System.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 40e4 -> priority: 1 
-  Thread -> id: 40e8 -> priority: 1 
-Success in saving name!Josh6714
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+  Thread -> id: e6c -> priority: 1 
+  Thread -> id: 34b8 -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.022649 ms
 
-Found 3 buttons 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Found 3 buttons 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Found 1 buttons 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Weapon_1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Weapon_2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Weapon_3
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Weapon_4
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-tempWeapons.Count=0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Current Hardpoint 0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Added with weapon id 2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-tempWeapons.Count=1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Current Hardpoint 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Added with weapon id 2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-tempWeapons.Count=2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Current Hardpoint 2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Added null
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-tempWeapons.Count=3
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Current Hardpoint 2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Added null
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Found 2 buttons 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Hit Wall
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Hit Wall
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Hit Wall
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Hit Wall
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Hit Wall
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-Hit Wall
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+Unloading 43 unused Assets to reduce memory usage. Loaded Objects now: 590.
+Total: 0.692797 ms (FindLiveObjects: 0.032929 ms CreateObjectMapping: 0.023948 ms MarkObjects: 0.610260 ms  DeleteObjects: 0.025231 ms)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.497063 ms
+UnloadTime: 0.836488 ms
 
-Unloading 30 unused Assets to reduce memory usage. Loaded Objects now: 263.
-Total: 0.291231 ms (FindLiveObjects: 0.024803 ms CreateObjectMapping: 0.013257 ms MarkObjects: 0.229221 ms  DeleteObjects: 0.022237 ms)
+Unloading 61 unused Assets to reduce memory usage. Loaded Objects now: 627.
+Total: 1.091797 ms (FindLiveObjects: 0.060299 ms CreateObjectMapping: 0.052173 ms MarkObjects: 0.782604 ms  DeleteObjects: 0.194581 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.662713 ms
+
+Unloading 100 unused Assets to reduce memory usage. Loaded Objects now: 591.
+Total: 0.588022 ms (FindLiveObjects: 0.037633 ms CreateObjectMapping: 0.026086 ms MarkObjects: 0.490090 ms  DeleteObjects: 0.033356 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.934421 ms
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 627.
+Total: 0.529861 ms (FindLiveObjects: 0.034212 ms CreateObjectMapping: 0.032073 ms MarkObjects: 0.443475 ms  DeleteObjects: 0.019672 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.375758 ms
+
+Unloading 100 unused Assets to reduce memory usage. Loaded Objects now: 591.
+Total: 0.597858 ms (FindLiveObjects: 0.031218 ms CreateObjectMapping: 0.024376 ms MarkObjects: 0.508051 ms  DeleteObjects: 0.033356 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.810829 ms
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 627.
+Total: 0.553810 ms (FindLiveObjects: 0.044903 ms CreateObjectMapping: 0.024376 ms MarkObjects: 0.464858 ms  DeleteObjects: 0.019244 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.401417 ms
+
+Unloading 100 unused Assets to reduce memory usage. Loaded Objects now: 591.
+Total: 0.567067 ms (FindLiveObjects: 0.028652 ms CreateObjectMapping: 0.023520 ms MarkObjects: 0.481109 ms  DeleteObjects: 0.032929 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.964356 ms
+
+Unloading 43 unused Assets to reduce memory usage. Loaded Objects now: 609.
+Total: 0.695790 ms (FindLiveObjects: 0.040199 ms CreateObjectMapping: 0.031218 ms MarkObjects: 0.568350 ms  DeleteObjects: 0.055594 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.405974 ms
+
+Unloading 100 unused Assets to reduce memory usage. Loaded Objects now: 573.
+Total: 0.623089 ms (FindLiveObjects: 0.036350 ms CreateObjectMapping: 0.025659 ms MarkObjects: 0.528151 ms  DeleteObjects: 0.032073 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.656019 ms
+
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 623.
+Total: 0.732141 ms (FindLiveObjects: 0.050463 ms CreateObjectMapping: 0.032929 ms MarkObjects: 0.620951 ms  DeleteObjects: 0.027369 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.367913 ms
+
+Unloading 188 unused Assets to reduce memory usage. Loaded Objects now: 644.
+Total: 0.780038 ms (FindLiveObjects: 0.051318 ms CreateObjectMapping: 0.026514 ms MarkObjects: 0.585456 ms  DeleteObjects: 0.115893 ms)
 
