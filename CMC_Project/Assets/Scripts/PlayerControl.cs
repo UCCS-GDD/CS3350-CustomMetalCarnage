@@ -35,14 +35,21 @@ public class PlayerControl : MonoBehaviour
 	{
 		health -= incomingDamage;
 		health = (health < 0) ? 0 : health;
-		healthFill.localScale = new Vector3(((float)health/(float)maxHealth), healthFill.localScale.y, healthFill.localScale.z);
-		damageFlash.color = new Color(damageFlash.color.r, damageFlash.color.g, damageFlash.color.b, 1f);
+		if(healthFill!=null)
+		{
+			healthFill.localScale = new Vector3(((float)health/(float)maxHealth), healthFill.localScale.y, healthFill.localScale.z);
+			StopCoroutine("HealthDecrease");
+			StartCoroutine("HealthDecrease");
+		}
+		if(damageFlash!=null)
+		{
+			damageFlash.color = new Color(damageFlash.color.r, damageFlash.color.g, damageFlash.color.b, 1f);
+			StopCoroutine("DamageFlash");
+			StartCoroutine("DamageFlash");
+		}
 
-		StopCoroutine("DamageFlash");
-		StartCoroutine("DamageFlash");
 
-		StopCoroutine("HealthDecrease");
-		StartCoroutine("HealthDecrease");
+
 
 		if(health == 0)
 		{

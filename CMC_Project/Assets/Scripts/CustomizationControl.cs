@@ -141,6 +141,18 @@ public class CustomizationControl : MonoBehaviour {
 			case 2:
 				weaponName = "Cannon";
 				break;
+			case 3:
+				weaponName = "ShotGun";
+				break;
+			case 4:
+				weaponName = "RailGun";
+				break;
+			case 5:
+				weaponName = "Laser";
+				break;
+			case 6:
+				weaponName = "EMP";
+				break;
 			}
 			
 			tempInt = 0;
@@ -157,7 +169,9 @@ public class CustomizationControl : MonoBehaviour {
 			}
 			////Debug.Log("Current Hardpoint "+tempInt);
 			if(tempInt<numHardPoints)
+			{
 				currentHardPoint = tempTurret.GetComponent<TurretControl>().hardPoints[tempInt];
+			}
 			
 			if(weapon>0)
 			{

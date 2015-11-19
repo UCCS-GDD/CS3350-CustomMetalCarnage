@@ -161,6 +161,18 @@ public class GameManagerControl : MonoBehaviour
 			case 2:
 				weaponName = "Cannon";
 				break;
+			case 3:
+				weaponName = "ShotGun";
+				break;
+			case 4:
+				weaponName = "RailGun";
+				break;
+			case 5:
+				weaponName = "Laser";
+				break;
+			case 6:
+				weaponName = "EMP";
+				break;
 			}
 
 			tempInt = 0;

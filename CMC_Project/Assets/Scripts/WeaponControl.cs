@@ -20,13 +20,14 @@ public class WeaponControl : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		audioManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+		//audioManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 		if(readyPrefab!=null)
 		{
 			readyObject = Instantiate(readyPrefab, transform.position, transform.rotation) as GameObject;
 			readyObject.transform.parent = transform;
 			readyObject.transform.localPosition = new Vector3(firingTip.x, firingTip.y, 0f);
 		}
+		lastFireTime = -(1f/rateOfFire);
 	}
 	
 	// Update is called once per frame

@@ -7,6 +7,7 @@ public class ProjectileControl : MonoBehaviour
 	public float travelSpeed = 1f;
 	public float timeAfterColl = 0f;
 	public int damage = 1;
+	public bool passThrough;
 	public GameObject explosionPrefab;
     public SoundManager audioManager;
     public AudioClip explosionSound;
@@ -72,15 +73,15 @@ public class ProjectileControl : MonoBehaviour
 		case "Enemy":
 			if(type==1)
 			{
-				exploded = true;
+				exploded = !passThrough;
 	            if (explosionSound != null)
 	            {
 	                audioManager.playModulatedSound(explosionSound, .5f);
 	            }
-				this.GetComponent<Collider2D>().enabled = false;
+				this.GetComponent<Collider2D>().enabled = passThrough;
 				if(thisRenderer!=null)
 				{
-					thisRenderer.enabled = false;
+					thisRenderer.enabled = passThrough;
 				}
 				collisionTime = Time.time;
 				OnHitEffects(coll.gameObject);
@@ -89,15 +90,15 @@ public class ProjectileControl : MonoBehaviour
 		case "Player":
 			if(type==0)
 			{
-				exploded = true;
+				exploded = !passThrough;
 				if (explosionSound != null)
 				{
 					audioManager.playModulatedSound(explosionSound, .5f);
 				}
-				this.GetComponent<Collider2D>().enabled = false;
+				this.GetComponent<Collider2D>().enabled = passThrough;
 				if(thisRenderer!=null)
 				{
-					thisRenderer.enabled = false;
+					thisRenderer.enabled = passThrough;
 				}
 				collisionTime = Time.time;
 				OnHitEffects(coll.gameObject);

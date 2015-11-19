@@ -29,7 +29,7 @@ public class BasicEnemyControl : MonoBehaviour
 	{
 		playerObject = GameObject.FindGameObjectWithTag("Player");
 		thisRigidbody = this.GetComponent<Rigidbody2D>();
-		audioManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+		//audioManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 
 		foreach(Transform child in transform)
 		{
