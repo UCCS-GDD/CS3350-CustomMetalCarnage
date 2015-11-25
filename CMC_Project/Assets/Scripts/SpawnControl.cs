@@ -5,6 +5,7 @@ public class SpawnControl : MonoBehaviour
 {
 	public GameObject objectPrefab;
 	private GameObject lastObject;
+	public bool continuous;
 	public float spawnPerSecond;
 	private float lastSpawnTime;
 
@@ -12,7 +13,17 @@ public class SpawnControl : MonoBehaviour
 	public float prespawnTimeLead;
 	private bool prespawnActive = false;
 
+	public static int pointsUsed;
+
 	// Use this for initialization
+	void Awake ()
+	{
+		if(Physics2D.CircleCast(transform.position, objectPrefab.GetComponent<CircleCollider2D>().radius, Vector2.zero))
+		{
+			Destroy(this.gameObject);
+		}
+	}
+
 	void Start () 
 	{
 		lastSpawnTime = Time.time;
@@ -44,5 +55,22 @@ public class SpawnControl : MonoBehaviour
 		}
 		lastObject = Instantiate(objectPrefab, transform.position, transform.rotation) as GameObject;
 		lastSpawnTime = Time.time;
+		if(objectPrefab.GetComponent<BasicEnemyControl>()!=null)
+		{
+			pointsUsed += objectPrefab.GetComponent<BasicEnemyControl>().points;
+		}
+		else if(objectPrefab.GetComponent<BomberControl>()!=null)
+		{
+			pointsUsed += objectPrefab.GetComponent<BomberControl>().points;
+		}
+//		else if(objectPrefab.GetComponent<>()!=null)
+//		{
+//			pointsUsed += objectPrefab.GetComponent<>().points;
+//		}
+
+		if(!continuous)
+		{
+			Destroy(this.gameObject);
+		}
 	}
 }
