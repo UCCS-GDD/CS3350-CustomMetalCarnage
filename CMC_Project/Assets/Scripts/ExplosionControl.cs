@@ -23,7 +23,7 @@ public class ExplosionControl : MonoBehaviour
 		{
 			if(coll.GetComponent<BomberControl>()!=null)
 			{
-				coll.GetComponent<BomberControl>().DestroyBomber();
+				coll.GetComponent<BomberControl>().TakeDamage(damage);
 			}
 			else if(coll.GetComponent<BasicEnemyControl>()!=null)
 			{

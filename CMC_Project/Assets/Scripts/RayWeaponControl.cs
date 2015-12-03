@@ -140,7 +140,7 @@ public class RayWeaponControl : MonoBehaviour
 		{
 			if(other.GetComponent<BomberControl>()!=null)
 			{
-				other.GetComponent<BomberControl>().DestroyBomber();
+				other.GetComponent<BomberControl>().TakeDamage(damage);
 			}
 			else if(other.GetComponent<BasicEnemyControl>()!=null)
 			{

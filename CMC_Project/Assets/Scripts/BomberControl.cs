@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BomberControl : MonoBehaviour 
 {
+	public int health;
 	public int points;
 	public int damage;
 	private GameObject playerObject;
@@ -46,12 +47,22 @@ public class BomberControl : MonoBehaviour
 		if(coll.gameObject.CompareTag("Player"))
 		{
 			coll.gameObject.GetComponent<PlayerControl>().TakeDamage(damage);
-			DestroyBomber();
+			DestroyEnemy();
 		}
 	}
 
 
-	public void DestroyBomber()
+	public void TakeDamage(int incomingDamage)
+	{
+		health -= incomingDamage;
+		if(health <= 0)
+		{
+			DestroyEnemy();
+		}
+	}
+
+
+	public void DestroyEnemy()
 	{
 		GameManagerControl.playerScore += points;
 		Instantiate(explosionPrefab, transform.position, transform.rotation);
