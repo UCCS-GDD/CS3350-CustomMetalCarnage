@@ -23,6 +23,7 @@ public class SpawnManagerControl : MonoBehaviour
 	void Start() 
 	{
 		StartCoroutine("SpawnWave");
+		SpawnControl.pointsUsed = 0;
 	}
 	
 	// Update is called once per frame
