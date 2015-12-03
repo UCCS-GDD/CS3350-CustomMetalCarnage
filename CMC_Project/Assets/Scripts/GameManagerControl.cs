@@ -34,7 +34,7 @@ public class GameManagerControl : MonoBehaviour
 	public float shadeDimSpeed;
 	
 	private SpriteRenderer shadeSprite;
-	private UnityEngine.UI.Text gameOverText;
+	private UnityEngine.UI.Image gameOverImage;
 
 	public Color beatScoreColor;
     public GameObject retry_Button;
@@ -76,7 +76,7 @@ public class GameManagerControl : MonoBehaviour
 		highScoreText1 = GameObject.FindGameObjectWithTag("HighScore").GetComponent<UnityEngine.UI.Text>();
 		highScoreText2 = GameObject.FindGameObjectWithTag("HighScore2").GetComponent<UnityEngine.UI.Text>();
 		shadeSprite = GameObject.FindGameObjectWithTag("Shade").GetComponent<SpriteRenderer>();
-		gameOverText = GameObject.FindGameObjectWithTag("GameOver").GetComponent<UnityEngine.UI.Text>();
+		gameOverImage = GameObject.FindGameObjectWithTag("GameOver").GetComponent<UnityEngine.UI.Image>();
 
 		playerScore = 0;
 		if(PlayerPrefs.HasKey("HighScore"))
@@ -224,7 +224,7 @@ public class GameManagerControl : MonoBehaviour
 			if(shadeSprite.color.a < 1f)
 			{
 				shadeSprite.color = new Color(0f, 0f, 0f, shadeSprite.color.a + shadeDimSpeed); 
-				gameOverText.color = new Color(200f, 0f, 0f, gameOverText.color.a + shadeDimSpeed);
+				gameOverImage.color = new Color(200f, 0f, 0f, gameOverImage.color.a + shadeDimSpeed);
 			}
 
             retry_Button.SetActive(true);
