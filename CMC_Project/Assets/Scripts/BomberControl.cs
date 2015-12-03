@@ -65,7 +65,7 @@ public class BomberControl : MonoBehaviour
 	public void DestroyEnemy()
 	{
 		GameManagerControl.playerScore += points;
-		Instantiate(explosionPrefab, transform.position, transform.rotation);
+		Instantiate(explosionPrefab, new Vector3(transform.position.x, transform.position.y, 1f), transform.rotation);
 		audioManager.playModulatedSound(explosionSound, .3f);
 		Destroy(this.gameObject);
 	}

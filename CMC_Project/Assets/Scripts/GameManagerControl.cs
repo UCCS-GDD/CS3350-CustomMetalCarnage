@@ -43,7 +43,7 @@ public class GameManagerControl : MonoBehaviour
 	// Use this for initialization
 	void Awake() 
 	{
-		vehicleLocation = new Vector3(5f, -5f, 0f);
+		vehicleLocation = new Vector3(5f, -5f, 1f);
 
 		if(PlayerPrefs.HasKey("Chassis"))
 			chassisNum = PlayerPrefs.GetInt("Chassis");

@@ -128,7 +128,7 @@ public class ProjectileControl : MonoBehaviour
 		}
 
 		// Spawn explosion particles
-		Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+		Instantiate(explosionPrefab, new Vector3(transform.position.x, transform.position.y, 1f), Quaternion.identity);
 
 	}
 

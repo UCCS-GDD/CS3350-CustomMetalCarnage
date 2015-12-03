@@ -96,7 +96,7 @@ public class RayWeaponControl : MonoBehaviour
 				audioManager.playModulatedSound(firingSound, .3f);
 			}
 
-			hit = Physics2D.Raycast(new Vector2(transform.position.x+firingTip.x, transform.position.y+firingTip.y), new Vector2((-Mathf.Sin(transform.rotation.eulerAngles.z*Mathf.Deg2Rad)), (Mathf.Cos(transform.rotation.eulerAngles.z*Mathf.Deg2Rad))));
+			hit = Physics2D.Raycast(new Vector2(transform.position.x+firingTip.x, transform.position.y+firingTip.y), new Vector2((-Mathf.Sin(transform.rotation.eulerAngles.z*Mathf.Deg2Rad)), (Mathf.Cos(transform.rotation.eulerAngles.z*Mathf.Deg2Rad))), Mathf.Infinity, -1, 0f, 0f);
 
 			// Show particle effect
 			targetObject.transform.position = new Vector3(hit.point.x, hit.point.y, transform.position.z);

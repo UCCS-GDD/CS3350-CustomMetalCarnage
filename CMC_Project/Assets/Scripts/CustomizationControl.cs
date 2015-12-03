@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CustomizationControl : MonoBehaviour {
 	
-	public Vector2 vehicleLocation;
+	public Vector3 vehicleLocation;
 	
 	public GameObject start_button;
 	public SoundManager audioManager;
