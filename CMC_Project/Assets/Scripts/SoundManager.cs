@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour {
     public AudioClip menuMusic;
 	public AudioClip levelMusic;
     public GameObject oneShotPrefab;
-    static SoundManager singleton;
+    public static SoundManager singleton;
     //bool newLoadedLevel;
     GameObject prefabInstance;
     AudioSource loopSource;
