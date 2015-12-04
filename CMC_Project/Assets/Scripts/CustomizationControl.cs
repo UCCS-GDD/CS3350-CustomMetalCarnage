@@ -153,6 +153,9 @@ public class CustomizationControl : MonoBehaviour {
 			case 6:
 				weaponName = "EMP";
 				break;
+			case 7:
+				weaponName = "PotassiumBlaster";
+				break;
 			}
 			
 			tempInt = 0;

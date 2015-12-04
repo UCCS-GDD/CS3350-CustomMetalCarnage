@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ProjectileControl : MonoBehaviour 
 {
-	public int type; // 0 for enemy projectile, 1 for player
+	public int team; // 0 for enemy projectile, 1 for player
 	public float travelSpeed = 1f;
 	public float timeAfterColl = 0f;
 	public int damage = 1;
@@ -71,7 +71,7 @@ public class ProjectileControl : MonoBehaviour
 			OnHitEffects(coll.gameObject);
 			break;
 		case "Enemy":
-			if(type==1)
+			if(team==1)
 			{
 				exploded = !passThrough;
 	            if (explosionSound != null)
@@ -88,7 +88,7 @@ public class ProjectileControl : MonoBehaviour
 			}
 			break;
 		case "Player":
-			if(type==0)
+			if(team==0)
 			{
 				exploded = !passThrough;
 				if (explosionSound != null)
@@ -110,7 +110,7 @@ public class ProjectileControl : MonoBehaviour
 
 	void OnHitEffects(GameObject other)
 	{
-		if((type==1) && (other.tag == "Enemy"))
+		if((team==1) && (other.tag == "Enemy"))
 		{
 			if(other.GetComponent<BomberControl>()!=null)
 			{
@@ -122,7 +122,7 @@ public class ProjectileControl : MonoBehaviour
 			}
 
 		}
-		if((type==0) && (other.tag == "Player"))
+		if((team==0) && (other.tag == "Player"))
 		{
 			other.GetComponent<PlayerControl>().TakeDamage(damage);
 		}

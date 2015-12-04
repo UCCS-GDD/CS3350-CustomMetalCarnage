@@ -32,7 +32,10 @@ public class BomberControl : MonoBehaviour
 	{
 		tempVector = (playerObject.transform.position - transform.position).normalized;
 		forceDirection = new Vector2(tempVector.x, tempVector.y);
-		thisRigidbody.AddForce(forceDirection);
+		if(moveSpeed > 0)
+		{
+			thisRigidbody.AddForce(forceDirection);
+		}
 		angleToPlayer = Mathf.Atan2(thisRigidbody.velocity.x, thisRigidbody.velocity.y) * Mathf.Rad2Deg;
 		targetRotation = Quaternion.Euler(new Vector3(0f, 0f, -angleToPlayer));
 		transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed);

@@ -42,7 +42,10 @@ public class selectSettings : MonoBehaviour {
 		//Debug.Log(selected.ToString());
 		if (buttons != null) {
 			foreach(Button b in buttons){
-				b.image.sprite = offSprite;
+				if(b.name!="PotassiumBlaster")
+				{
+					b.image.sprite = offSprite;
+				}
 				//Debug.Log(b.ToString);
 			}
 			if(!save_key.Equals("Weapon"))
@@ -62,7 +65,10 @@ public class selectSettings : MonoBehaviour {
 		{
 			foreach(Button b in buttons)
 			{
-				b.image.sprite = offSprite;
+				if(b.name!="PotassiumBlaster")
+				{
+					b.image.sprite = offSprite;
+				}
 				//Debug.Log(b.ToString);
 			}	
 		}

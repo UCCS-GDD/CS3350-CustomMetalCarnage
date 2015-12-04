@@ -46,7 +46,7 @@ public class BasicEnemyControl : MonoBehaviour
 		targetRotation = Quaternion.Euler(new Vector3(0f, 0f, -angleToPlayer));
 		transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed);
 		//Debug.Log ("Distance = " + Vector3.Distance (playerObject.transform.position, transform.position));
-		if(Vector3.Distance(playerObject.transform.position, transform.position) > stopDistance)
+		if((moveSpeed > 0) && (Vector3.Distance(playerObject.transform.position, transform.position) > stopDistance))
 		{
 			thisRigidbody.AddForce(forceDirection);
 		}
