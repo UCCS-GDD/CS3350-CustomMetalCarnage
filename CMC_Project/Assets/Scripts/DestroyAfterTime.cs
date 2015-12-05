@@ -26,4 +26,11 @@ public class DestroyAfterTime : MonoBehaviour
 		}
 	}
 
+    void OnEnable()
+    {
+        if (effectSound != null)
+        {
+            SoundManager.singleton.playModulatedSound(effectSound, .5f);
+        }
+    }
 }
