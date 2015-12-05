@@ -32,7 +32,7 @@ public class PressStart : MonoBehaviour
 	{
 		while(true)
 		{
-			if(Input.GetButton("Submit"))
+			if(Input.GetButton("Submit") || Input.GetMouseButton(0))
 			{
                 //Debug.Log("the sound should  be playing.");
                 

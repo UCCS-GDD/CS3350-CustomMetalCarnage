@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ExplosionControl : MonoBehaviour 
 {
+	public int team; // 0 for enemy projectile, 1 for player
 	public int damage;
 
 	// Use this for initialization
@@ -19,7 +20,7 @@ public class ExplosionControl : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D coll)
 	{
-		if(coll.CompareTag("Enemy"))
+		if((team==1) && coll.CompareTag("Enemy"))
 		{
 			if(coll.GetComponent<BomberControl>()!=null)
 			{
@@ -29,6 +30,14 @@ public class ExplosionControl : MonoBehaviour
 			{
 				coll.GetComponent<BasicEnemyControl>().TakeDamage(damage);
 			}
+			else if(coll.GetComponent<ArtilleryControl>()!=null)
+			{
+				coll.GetComponent<ArtilleryControl>().TakeDamage(damage);
+			}
+		}
+		if((team==0) && (coll.CompareTag("Player")))
+		{
+			coll.GetComponent<PlayerControl>().TakeDamage(damage);
 		}
 	}
 }

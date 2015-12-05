@@ -146,6 +146,10 @@ public class RayWeaponControl : MonoBehaviour
 			{
 				other.GetComponent<BasicEnemyControl>().TakeDamage(damage);
 			}
+			else if(other.GetComponent<ArtilleryControl>()!=null)
+			{
+				other.GetComponent<ArtilleryControl>().TakeDamage(damage);
+			}
 			
 		}
 		if((team==0) && (other.tag == "Player"))
