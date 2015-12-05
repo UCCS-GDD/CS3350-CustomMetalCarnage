@@ -84,7 +84,10 @@ public class ArtilleryControl : MonoBehaviour
 	{
 		GameManagerControl.playerScore += points;
 		Instantiate(explosionPrefab, transform.position, transform.rotation);
-		audioManager.playModulatedSound(explosionSound, .3f);
+		if(explosionSound!=null)
+		{
+			audioManager.playModulatedSound(explosionSound, .3f);
+		}
 		Destroy(this.gameObject);
 	}
 }
