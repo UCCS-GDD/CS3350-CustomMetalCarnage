@@ -14,6 +14,7 @@ public class BossControl : MonoBehaviour
 
 	public SoundManager audioManager;
 	public AudioClip explosionSound;
+    public AudioClip bossMusic;
 	
 	public GameObject explosionPrefab;
 
@@ -36,6 +37,7 @@ public class BossControl : MonoBehaviour
 	{
 		targetObject = Instantiate(targetPrefab, topWall.transform.position, Quaternion.identity) as GameObject;
 		thisRigidbody = this.GetComponent<Rigidbody2D>();
+        SoundManager.singleton.playSustainedSound(bossMusic);
 		//audioManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 		
 		foreach(Transform child in transform)
