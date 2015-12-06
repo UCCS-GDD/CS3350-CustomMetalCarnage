@@ -38,27 +38,38 @@ public class SpawnManagerControl : MonoBehaviour
 	IEnumerator SpawnWave()
 	{
 		while(true)
-		{	//Debug.Log(SpawnControl.pointsUsed);
-			if(SpawnControl.pointsUsed < wavePoints[currentWave])
+		{	//Debug.Log(currentWave);
+			if(currentWave < numWaves)
 			{
-				randInt = Random.Range(0, spawners.Length);
-				Instantiate(spawners[randInt], new Vector3(Random.Range(leftWall.transform.position.x, rightWall.transform.position.x), Random.Range(bottomWall.transform.position.y, topWall.transform.position.y), 0f), Quaternion.identity);
-			}
-			else
-			{
-				currentWave++;
-				if(currentWave >= numWaves)
+				if(SpawnControl.pointsUsed < wavePoints[currentWave])
 				{
-					OnLevelComplete();
-					StopCoroutine("SpawnWave");
+					randInt = Random.Range(0, spawners.Length);
+					Instantiate(spawners[randInt], new Vector3(Random.Range(leftWall.transform.position.x, rightWall.transform.position.x), Random.Range(bottomWall.transform.position.y, topWall.transform.position.y), 0f), Quaternion.identity);
 				}
 				else
 				{
-					OnWaveComplete();
-					yield return new WaitForSeconds(waveDelay);
+					currentWave++;
+					if(currentWave >= numWaves)
+					{
+						OnLevelComplete();
+						StopCoroutine("SpawnWave");
+					}
+					else
+					{
+						OnWaveComplete();
+						yield return new WaitForSeconds(waveDelay);
+					}
+				}
+				//Debug.Log(currentWave);
+				if(currentWave < numWaves)
+				{
+					yield return new WaitForSeconds(spawnerDelay[currentWave]);
+				}
+				else
+				{
+					yield return null;
 				}
 			}
-			yield return new WaitForSeconds(spawnerDelay[currentWave]);
 		}
 	}
 
