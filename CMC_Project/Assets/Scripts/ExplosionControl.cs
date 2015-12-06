@@ -34,6 +34,10 @@ public class ExplosionControl : MonoBehaviour
 			{
 				coll.GetComponent<ArtilleryControl>().TakeDamage(damage);
 			}
+			else if(coll.GetComponent<BossControl>()!=null)
+			{
+				coll.GetComponent<BossControl>().TakeDamage(damage);
+			}
 		}
 		if((team==0) && (coll.CompareTag("Player")))
 		{

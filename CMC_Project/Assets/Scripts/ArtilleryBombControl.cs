@@ -26,7 +26,7 @@ public class ArtilleryBombControl : MonoBehaviour
 		// Place bombs near Player
 		for(int ii=0; ii<numberOfBombs; ii++)
 		{
-			Debug.Log(((1f-(spread/2))+(spread/numberOfBombs*ii)));
+			//Debug.Log(((1f-(spread/2))+(spread/numberOfBombs*ii)));
 			Instantiate(bombPrefab, (((1f-(spread/2))+(spread/numberOfBombs*ii))*targetDirection.normalized*targetDistance)+(Vector2)transform.position, transform.rotation);
 			yield return new WaitForSeconds(delayBetweenBombs);
 		}

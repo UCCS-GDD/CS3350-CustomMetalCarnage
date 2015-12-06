@@ -17,6 +17,8 @@ public class SpawnManagerControl : MonoBehaviour
 	public GameObject rightWall;
 	public GameObject bottomWall;
 
+	public GameObject BossPrefab;
+
 	private int randInt;
 
 	// Use this for initialization
@@ -64,12 +66,14 @@ public class SpawnManagerControl : MonoBehaviour
 	void OnWaveComplete()
 	{
 		Debug.Log("Wave "+(currentWave-1)+" complete");
+
 	}
 
 
 	void OnLevelComplete()
 	{
 		Debug.Log("Level '"+Application.loadedLevelName+"' complete");
+		BossPrefab.SetActive(true);
 	}
 
 

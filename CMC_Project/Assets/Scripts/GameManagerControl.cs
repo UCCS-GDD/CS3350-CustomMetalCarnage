@@ -40,6 +40,8 @@ public class GameManagerControl : MonoBehaviour
     public GameObject retry_Button;
     public GameObject menu_Button;
 
+
+
 	// Use this for initialization
 	void Awake() 
 	{

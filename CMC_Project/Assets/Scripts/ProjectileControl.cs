@@ -124,6 +124,10 @@ public class ProjectileControl : MonoBehaviour
 			{
 				other.GetComponent<ArtilleryControl>().TakeDamage(damage);
 			}
+			else if(other.GetComponent<BossControl>()!=null)
+			{
+				other.GetComponent<BossControl>().TakeDamage(damage);
+			}
 
 		}
 		if((team==0) && (other.tag == "Player"))

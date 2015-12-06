@@ -116,8 +116,10 @@ public class SoundManager : MonoBehaviour {
         oneShotPrefab.GetComponent<AudioSource>().clip = sound;
         oneShotPrefab.GetComponent<AudioSource>().volume = volume;
         oneShotPrefab.GetComponent<AudioSource>().pitch = 1;
-        Instantiate(oneShotPrefab, this.transform.position, Quaternion.Euler(new Vector3(0,0,0)));
-        //oneShotPrefab.GetComponent<AudioSource>().pitch = Random.Range(90, 110);
+		if(oneShotPrefab != null) 
+		{
+			Instantiate(oneShotPrefab, this.transform.position, Quaternion.Euler (new Vector3 (0, 0, 0)));
+		}//oneShotPrefab.GetComponent<AudioSource>().pitch = Random.Range(90, 110);
         //AudioSource.PlayClipAtPoint(sound, this.transform.position);
         //Debug.Log(sound + " played.");
     }
