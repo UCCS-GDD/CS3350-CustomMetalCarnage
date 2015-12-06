@@ -40,7 +40,11 @@ public class GameManagerControl : MonoBehaviour
     public GameObject retry_Button;
     public GameObject menu_Button;
 
-
+	private static List<UnityEngine.UI.Text> messageObject = new List<UnityEngine.UI.Text>();
+	private static string currentMessage;
+	private static float messageStartTime;
+	public static float messageCharDelay = 0.15f;
+	public float messageTotalDuration;
 
 	// Use this for initialization
 	void Awake() 
@@ -79,6 +83,8 @@ public class GameManagerControl : MonoBehaviour
 		highScoreText2 = GameObject.FindGameObjectWithTag("HighScore2").GetComponent<UnityEngine.UI.Text>();
 		shadeSprite = GameObject.FindGameObjectWithTag("Shade").GetComponent<SpriteRenderer>();
 		gameOverImage = GameObject.FindGameObjectWithTag("GameOver").GetComponent<UnityEngine.UI.Image>();
+		messageObject.Add(GameObject.FindGameObjectsWithTag("Message")[0].GetComponent<UnityEngine.UI.Text>());
+		messageObject.Add(GameObject.FindGameObjectsWithTag("Message")[1].GetComponent<UnityEngine.UI.Text>());
 
 		playerScore = 0;
 		if(PlayerPrefs.HasKey("HighScore"))
@@ -115,6 +121,17 @@ public class GameManagerControl : MonoBehaviour
 //		{
 //			Application.LoadLevel(1);
 //		}
+
+
+		if((Time.time-messageStartTime) > messageTotalDuration)
+		{
+			foreach(UnityEngine.UI.Text item in messageObject)
+			{
+				item.text = "";
+			}
+		}
+
+
 	}
 
 
@@ -219,6 +236,36 @@ public class GameManagerControl : MonoBehaviour
 	{
 		Time.timeScale = 0f;
 		StartCoroutine("DeathMenu");
+	}
+
+
+	public static void ShowMessage(string message)
+	{
+		currentMessage = message;
+		messageStartTime = Time.time;
+		foreach(UnityEngine.UI.Text item in messageObject)
+		{
+			item.text = "";
+		}
+		GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerControl>().StartCoroutine("PrintMessage");
+	}
+
+
+	IEnumerator PrintMessage()
+	{	//Debug.Log("Message '"+currentMessage+"' started");
+		int ii = 0;
+		while(ii < currentMessage.Length)
+		{
+			foreach(UnityEngine.UI.Text item in messageObject)
+			{
+				//Debug.Log(""+currentMessage[ii]);
+				item.text = item.text + currentMessage[ii];
+			}
+			ii++;
+			yield return new WaitForSeconds(messageCharDelay);
+		}
+		GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerControl>().StopCoroutine("PrintMessage");
+		yield return null;
 	}
 	
 	

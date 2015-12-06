@@ -121,7 +121,7 @@ public class BossControl : MonoBehaviour
 		Instantiate(explosionPrefab, transform.position, transform.rotation);
 		if(explosionSound!=null)
 		{
-			audioManager.playModulatedSound(explosionSound, .3f);
+			//audioManager.playModulatedSound(explosionSound, .3f);
 		}
 		Destroy(this.gameObject);
 	}
@@ -129,7 +129,9 @@ public class BossControl : MonoBehaviour
 
 	void OnDestroy()
 	{
-		Debug.Log("You win!");
+		GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerControl>().retry_Button.SetActive(true);
+		GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerControl>().menu_Button.SetActive(true);
+		GameManagerControl.ShowMessage("Congratulations! You are the Champion of the Arena!");
 	}
 
 }
