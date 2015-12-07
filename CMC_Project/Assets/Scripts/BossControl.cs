@@ -129,6 +129,11 @@ public class BossControl : MonoBehaviour
 
 	void OnDestroy()
 	{
+		foreach(ProjectileControl item in GameObject.FindObjectsOfType<ProjectileControl>())
+		{
+			Destroy(item.gameObject);
+		}
+		
 		GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerControl>().retry_Button.SetActive(true);
 		GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerControl>().menu_Button.SetActive(true);
 		GameManagerControl.ShowMessage("Congratulations! You are the Champion of the Arena!");
