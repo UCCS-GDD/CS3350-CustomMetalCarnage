@@ -12,7 +12,7 @@ public class RayWeaponControl : MonoBehaviour
 	public float duration;
 	public GameObject particlePrefab;
 	public AudioClip firingSound;
-	public SoundManager audioManager;
+	//public SoundManager audioManager;
 	public GameObject readyPrefab;
 	public GameObject targetPrefab;
 	public GameObject explosionPrefab;
@@ -93,7 +93,7 @@ public class RayWeaponControl : MonoBehaviour
 
 			if(firingSound!=null)
 			{
-				audioManager.playModulatedSound(firingSound, .3f);
+				SoundManager.singleton.playModulatedSound(firingSound, .5f);
 			}
 
 			hit = Physics2D.Raycast(new Vector2(transform.position.x+firingTip.x, transform.position.y+firingTip.y), new Vector2((-Mathf.Sin(transform.rotation.eulerAngles.z*Mathf.Deg2Rad)), (Mathf.Cos(transform.rotation.eulerAngles.z*Mathf.Deg2Rad))), Mathf.Infinity, -1, 0f, 0f);

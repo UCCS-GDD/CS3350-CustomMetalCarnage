@@ -7,8 +7,7 @@ public class UIManager : MonoBehaviour {
 
 	public Vector2 vehicleLocation;
 
-	public GameObject start_button;
-    public SoundManager audioManager;
+	public GameObject start_button;   
 	public GameObject play_button;
 	public GameObject build_button;
 	public GameObject options_button;
@@ -76,7 +75,7 @@ public class UIManager : MonoBehaviour {
 				options_button.SetActive(true);
                 back_button.SetActive(false);
                 //audioManager.playSound(startClip);)
-                audioManager.playSoundAtVolume(startClip, .4f);
+                SoundManager.singleton.playSoundAtVolume(startClip, .4f);
                 //AudioSource.PlayClipAtPoint(startClip, Camera.main.transform.position);
 			}
 		}

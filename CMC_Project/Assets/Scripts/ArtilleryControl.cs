@@ -15,7 +15,7 @@ public class ArtilleryControl : MonoBehaviour
 	private float angleToPlayer;
 	private Quaternion targetRotation;
 	public float rotationSpeed;
-	public SoundManager audioManager;
+	//public SoundManager audioManager;
 	public AudioClip explosionSound;
 	
 	public GameObject explosionPrefab;
@@ -86,7 +86,7 @@ public class ArtilleryControl : MonoBehaviour
 		Instantiate(explosionPrefab, transform.position, transform.rotation);
 		if(explosionSound!=null)
 		{
-			audioManager.playModulatedSound(explosionSound, .3f);
+			SoundManager.singleton.playModulatedSound(explosionSound, .3f);
 		}
 		Destroy(this.gameObject);
 	}

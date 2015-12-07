@@ -9,7 +9,7 @@ public class ProjectileControl : MonoBehaviour
 	public int damage = 1;
 	public bool passThrough;
 	public GameObject explosionPrefab;
-    public SoundManager audioManager;
+    //public SoundManager audioManager;
     public AudioClip explosionSound;
 
 //	private GameObject tempObject;
@@ -60,7 +60,7 @@ public class ProjectileControl : MonoBehaviour
 			exploded = true;
 			if (explosionSound != null)
 			{
-				audioManager.playModulatedSound(explosionSound, .5f);
+				SoundManager.singleton.playModulatedSound(explosionSound, .5f);
 			}
 			this.GetComponent<Collider2D>().enabled = false;
 			if(thisRenderer!=null)
@@ -76,7 +76,7 @@ public class ProjectileControl : MonoBehaviour
 				exploded = !passThrough;
 	            if (explosionSound != null)
 	            {
-	                audioManager.playModulatedSound(explosionSound, .5f);
+	                SoundManager.singleton.playModulatedSound(explosionSound, .5f);
 	            }
 				this.GetComponent<Collider2D>().enabled = passThrough;
 				if(thisRenderer!=null)
@@ -93,7 +93,7 @@ public class ProjectileControl : MonoBehaviour
 				exploded = !passThrough;
 				if (explosionSound != null)
 				{
-					audioManager.playModulatedSound(explosionSound, .5f);
+					SoundManager.singleton.playModulatedSound(explosionSound, .3f);
 				}
 				this.GetComponent<Collider2D>().enabled = passThrough;
 				if(thisRenderer!=null)

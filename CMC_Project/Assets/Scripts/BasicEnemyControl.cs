@@ -15,7 +15,7 @@ public class BasicEnemyControl : MonoBehaviour
 	private float angleToPlayer;
 	private Quaternion targetRotation;
 	public float rotationSpeed;
-	public SoundManager audioManager;
+	//public SoundManager audioManager;
 	public AudioClip explosionSound;
 	
 	public GameObject explosionPrefab;
@@ -84,7 +84,7 @@ public class BasicEnemyControl : MonoBehaviour
 	{
 		GameManagerControl.playerScore += points;
 		Instantiate(explosionPrefab, transform.position, transform.rotation);
-		audioManager.playModulatedSound(explosionSound, .3f);
+		SoundManager.singleton.playModulatedSound(explosionSound, .3f);
 		Destroy(this.gameObject);
 	}
 }

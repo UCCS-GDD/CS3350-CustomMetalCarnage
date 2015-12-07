@@ -9,9 +9,9 @@ public class WeaponControl : MonoBehaviour
 	public float rateOfFire;
 	public GameObject projectilePrefab;
     public AudioClip firingSound;
-    public SoundManager audioManager;
+    //public SoundManager audioManager;
 	public GameObject readyPrefab;
-
+    public float volume = .5f;
 	private GameObject readyObject;
 	private float lastFireTime = 0f;
 	private List<GameObject> projectiles = new List<GameObject>();
@@ -52,7 +52,7 @@ public class WeaponControl : MonoBehaviour
 			tempObject = GetPooledProjectile();
 			if(firingSound!=null)
 			{
-            	audioManager.playModulatedSound(firingSound, .3f);
+            	SoundManager.singleton.playModulatedSound(firingSound, volume);
 			}
 			if(tempObject != null)
 			{

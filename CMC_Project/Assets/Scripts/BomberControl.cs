@@ -14,7 +14,7 @@ public class BomberControl : MonoBehaviour
 	private float angleToPlayer;
 	private Quaternion targetRotation;
 	public float rotationSpeed;
-    public SoundManager audioManager;
+    //public SoundManager audioManager;
     public AudioClip explosionSound;
 
 	public GameObject explosionPrefab;
@@ -69,7 +69,7 @@ public class BomberControl : MonoBehaviour
 	{
 		GameManagerControl.playerScore += points;
 		Instantiate(explosionPrefab, new Vector3(transform.position.x, transform.position.y, 1f), transform.rotation);
-		audioManager.playModulatedSound(explosionSound, .3f);
+		SoundManager.singleton.playModulatedSound(explosionSound, .3f);
 		Destroy(this.gameObject);
 	}
 }

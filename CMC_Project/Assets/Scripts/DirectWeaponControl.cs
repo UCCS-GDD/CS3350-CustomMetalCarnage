@@ -10,7 +10,7 @@ public class DirectWeaponControl : MonoBehaviour
 	public GameObject effectPrefab;
 	public GameObject particlePrefab;
 	public AudioClip firingSound;
-	public SoundManager audioManager;
+	//public SoundManager audioManager;
 	public GameObject readyPrefab;
 	public GameObject targetPrefab;
 	public float speedDelay;
@@ -70,7 +70,7 @@ public class DirectWeaponControl : MonoBehaviour
 			
 			if(firingSound!=null)
 			{
-				audioManager.playModulatedSound(firingSound, .3f);
+				SoundManager.singleton.playModulatedSound(firingSound, .5f);
 			}
 
 			//Debug.Log ("Direct Fire");

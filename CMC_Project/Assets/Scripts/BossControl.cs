@@ -12,7 +12,6 @@ public class BossControl : MonoBehaviour
 	private Vector2 forceDirection;
 	private Vector3 tempVector;
 
-	public SoundManager audioManager;
 	public AudioClip explosionSound;
     public AudioClip bossMusic;
 	
