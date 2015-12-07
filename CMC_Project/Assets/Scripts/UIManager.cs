@@ -88,6 +88,8 @@ public class UIManager : MonoBehaviour {
 			play_button.SetActive(false);
 			build_button.SetActive(false);
 			options_button.SetActive(false);
+			back_button.transform.SetParent(title_screen.transform, false);
+			back_button.transform.SetAsLastSibling();
             back_button.SetActive(true);
 			name_screen.SetActive(true);
 			if(PlayerPrefs.HasKey("PlayerName")){
@@ -102,6 +104,8 @@ public class UIManager : MonoBehaviour {
         build_button.SetActive(false);
         options_button.SetActive(false);
         title_text.SetActive(false);
+		back_button.transform.SetParent(help_screen.transform, false);
+		back_button.transform.SetAsLastSibling();
         back_button.SetActive(true);
         help_screen.SetActive(true);
     }
