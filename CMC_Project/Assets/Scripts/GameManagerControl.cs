@@ -43,7 +43,7 @@ public class GameManagerControl : MonoBehaviour
 	private static List<UnityEngine.UI.Text> messageObject = new List<UnityEngine.UI.Text>();
 	private static string currentMessage;
 	private static float messageStartTime;
-	public static float messageCharDelay = 0.15f;
+	public static float messageCharDelay = 0.1f;
 	public float messageTotalDuration;
 
 	// Use this for initialization

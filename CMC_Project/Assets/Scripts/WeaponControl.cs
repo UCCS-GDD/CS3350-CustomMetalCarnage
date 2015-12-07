@@ -48,12 +48,14 @@ public class WeaponControl : MonoBehaviour
 			{
 				readyObject.SetActive(false);
 			}
-			lastFireTime = Time.time;
-			tempObject = GetPooledProjectile();
+
 			if(firingSound!=null)
 			{
             	SoundManager.singleton.playModulatedSound(firingSound, volume);
 			}
+
+			lastFireTime = Time.time;
+			tempObject = GetPooledProjectile();
 			if(tempObject != null)
 			{
 				tempObject.transform.parent = this.transform;

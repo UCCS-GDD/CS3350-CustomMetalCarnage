@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e7783008dae7e8a4d8e3a6482d29981d
-timeCreated: 1447142073
+timeCreated: 1449457358
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -59,9 +59,9 @@ TextureImporter:
         x: 0
         y: 0
         width: 32
-        height: 96
+        height: 141
       alignment: 9
-      pivot: {x: .5, y: .167981505}
+      pivot: {x: .500000119, y: .223935753}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Railgun Weapon_1
       rect:
@@ -69,9 +69,9 @@ TextureImporter:
         x: 32
         y: 0
         width: 32
-        height: 96
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        height: 141
+      alignment: 9
+      pivot: {x: .499999762, y: .229181468}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Railgun Weapon_2
       rect:
@@ -79,9 +79,9 @@ TextureImporter:
         x: 64
         y: 0
         width: 32
-        height: 96
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        height: 141
+      alignment: 9
+      pivot: {x: .5, y: .22470513}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Railgun Weapon_3
       rect:
@@ -89,9 +89,9 @@ TextureImporter:
         x: 96
         y: 0
         width: 32
-        height: 96
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        height: 141
+      alignment: 9
+      pivot: {x: .499999762, y: .226943314}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
