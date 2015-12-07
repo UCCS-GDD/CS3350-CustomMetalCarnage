@@ -26,6 +26,7 @@ public class SpawnManagerControl : MonoBehaviour
 	{
 		StartCoroutine("SpawnWave");
 		SpawnControl.pointsUsed = 0;
+		currentWave = 0;
 	}
 	
 	// Update is called once per frame
@@ -85,6 +86,7 @@ public class SpawnManagerControl : MonoBehaviour
 	void OnLevelComplete()
 	{
 		Debug.Log("Level '"+Application.loadedLevelName+"' complete");
+		StopCoroutine("SpawnWave");
 		GameManagerControl.ShowMessage("The 'Opressor' has entered the Arena!");
 		BossPrefab.SetActive(true);
 	}

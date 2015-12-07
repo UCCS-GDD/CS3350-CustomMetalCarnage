@@ -18,7 +18,7 @@ public class SpawnControl : MonoBehaviour
 	// Use this for initialization
 	void Awake ()
 	{
-		if(Physics2D.CircleCast(transform.position, objectPrefab.GetComponent<CircleCollider2D>().radius, Vector2.zero))
+		if(Physics2D.CircleCast(transform.position, 2, Vector2.zero))
 		{
 			Destroy(this.gameObject);
 		}
