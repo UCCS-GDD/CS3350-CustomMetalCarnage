@@ -51,6 +51,9 @@ public class GameManagerControl : MonoBehaviour
 	{
 		vehicleLocation = new Vector3(5f, -5f, 1f);
 
+		messageStartTime = Time.time;
+		messageObject = new List<UnityEngine.UI.Text>();
+
 		if(PlayerPrefs.HasKey("Chassis"))
 			chassisNum = PlayerPrefs.GetInt("Chassis");
 		if(PlayerPrefs.HasKey("Turret"))
