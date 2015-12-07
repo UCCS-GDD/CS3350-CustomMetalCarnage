@@ -22,6 +22,21 @@ public class SpawnControl : MonoBehaviour
 		{
 			Destroy(this.gameObject);
 		}
+		else
+		{
+			if(objectPrefab.GetComponent<BasicEnemyControl>()!=null)
+			{
+				pointsUsed += objectPrefab.GetComponent<BasicEnemyControl>().points;
+			}
+			else if(objectPrefab.GetComponent<BomberControl>()!=null)
+			{
+				pointsUsed += objectPrefab.GetComponent<BomberControl>().points;
+			}
+			else if(objectPrefab.GetComponent<ArtilleryControl>()!=null)
+			{
+				pointsUsed += objectPrefab.GetComponent<ArtilleryControl>().points;
+			}
+		}
 	}
 
 	void Start () 
@@ -55,18 +70,7 @@ public class SpawnControl : MonoBehaviour
 		}
 		lastObject = Instantiate(objectPrefab, transform.position, transform.rotation) as GameObject;
 		lastSpawnTime = Time.time;
-		if(objectPrefab.GetComponent<BasicEnemyControl>()!=null)
-		{
-			pointsUsed += objectPrefab.GetComponent<BasicEnemyControl>().points;
-		}
-		else if(objectPrefab.GetComponent<BomberControl>()!=null)
-		{
-			pointsUsed += objectPrefab.GetComponent<BomberControl>().points;
-		}
-//		else if(objectPrefab.GetComponent<>()!=null)
-//		{
-//			pointsUsed += objectPrefab.GetComponent<>().points;
-//		}
+
 
 		if(!continuous)
 		{

@@ -47,7 +47,7 @@ public class SpawnManagerControl : MonoBehaviour
 					randInt = Random.Range(0, spawners.Length);
 					Instantiate(spawners[randInt], new Vector3(Random.Range(leftWall.transform.position.x, rightWall.transform.position.x), Random.Range(bottomWall.transform.position.y, topWall.transform.position.y), 0f), Quaternion.identity);
 				}
-				else
+				else if(GameManagerControl.playerScore >= wavePoints[currentWave])
 				{
 					currentWave++;
 					if(currentWave >= numWaves)
