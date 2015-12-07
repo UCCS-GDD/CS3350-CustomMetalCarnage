@@ -173,7 +173,8 @@ public class GameManagerControl : MonoBehaviour
 		tempTurret = Instantiate(Resources.Load("Turret/"+turretName), vehicleLocation, Quaternion.identity) as GameObject;
 		tempTurret.transform.parent = tempChassis.transform;
 		numHardPoints = tempTurret.GetComponent<TurretControl>().hardPoints.Count;
-		
+
+		tempInt = 0;
 		// Show Weapons
 		foreach(int weapon in weaponsNum)
 		{
@@ -202,21 +203,22 @@ public class GameManagerControl : MonoBehaviour
 				break;
 			}
 
-			tempInt = 0;
-			foreach(GameObject weap in tempWeapons)
-			{
-				if(weap!=null)
-				{
-					tempInt++;
-				}
-				else
-				{
-					break;
-				}
-			}
+//			foreach(GameObject weap in tempWeapons)
+//			{
+//				if(weap!=null)
+//				{
+//					tempInt++;
+//				}
+//				else
+//				{
+//					break;
+//				}
+//			}
 			////Debug.Log("Current Hardpoint "+tempInt);
 			if(tempInt<numHardPoints)
+			{
 				currentHardPoint = tempTurret.GetComponent<TurretControl>().hardPoints[tempInt];
+			}
 			
 			if(weapon>0)
 			{
@@ -231,6 +233,7 @@ public class GameManagerControl : MonoBehaviour
 			{
 				tempWeapons.Add(null);
 			}
+			tempInt++;
 		}
 	}
 
