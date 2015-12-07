@@ -291,10 +291,10 @@ public class CustomizationControl : MonoBehaviour {
 			
 			// Sync playerprefs
 			tempInt = 1;
-			while(true)
+			while(tempInt <= numHardPoints)
 			{
-				if(PlayerPrefs.HasKey("Weapon_"+tempInt))
-				{
+//				if(PlayerPrefs.HasKey("Weapon_"+tempInt))
+//				{
 					if((tempWeapons.Count>=tempInt) && (tempWeapons[tempInt-1]!=null))
 					{
 						//Debug.Log(tempWeapons[tempInt-1].name);
@@ -322,19 +322,19 @@ public class CustomizationControl : MonoBehaviour {
 							PlayerPrefs.SetInt("Weapon_"+tempInt, 7);
 							break;
 						}
-						//Debug.Log("Setint Weapon_"+tempInt+" -> "+tempWeapons[tempInt-1].name);
+						Debug.Log("Setint Weapon_"+tempInt+" -> "+tempWeapons[tempInt-1].name);
 					}
 					else
 					{
 						PlayerPrefs.SetInt("Weapon_"+tempInt, 0);
-						//Debug.Log("Setint Weapon_"+tempInt+" -> 0");
+						Debug.Log("Setint Weapon_"+tempInt+" -> 0");
 					}
 					tempInt++;
-				}
-				else
-				{
-					break;
-				}
+//				}
+//				else
+//				{
+//					break;
+//				}
 			}
 			
 			if(tempChassis!=null)
@@ -380,16 +380,18 @@ public class CustomizationControl : MonoBehaviour {
 				tempWeapons.Insert(tempInt, Instantiate(compareWeapon, vehicleLocation, Quaternion.identity) as GameObject);
 				
 				if(tempWeapons.Count>=(tempInt+2))
+				{
 					tempWeapons.RemoveAt(tempInt+1);
+				}
 				
 				//Debug.Log("Added "+partName);
 				
 				// Sync with PlayerPrefs
 				int ii=1;
-				while(true)
+				while(ii <= numHardPoints)
 				{
-					if(PlayerPrefs.HasKey("Weapon_"+ii))
-					{
+//					if(PlayerPrefs.HasKey("Weapon_"+ii))
+//					{
 						if((tempWeapons.Count>=ii) && (tempWeapons[ii-1]!=null))
 						{
 							//Debug.Log(tempWeapons[ii-1].name);
@@ -417,19 +419,19 @@ public class CustomizationControl : MonoBehaviour {
 								PlayerPrefs.SetInt("Weapon_"+ii, 7);
 								break;
 							}
-							//Debug.Log("Setint Weapon_"+ii+" -> "+tempWeapons[ii-1].name);
+							Debug.Log("Setint Weapon_"+ii+" -> "+tempWeapons[ii-1].name);
 						}
 						else
 						{
 							PlayerPrefs.SetInt("Weapon_"+ii, 0);
-							//Debug.Log("Setint Weapon_"+ii+" -> 0");
+							Debug.Log("Setint Weapon_"+ii+" -> 0");
 						}
 						ii++;
-					}
-					else
-					{
-						break;
-					}
+//					}
+//					else
+//					{
+//						break;
+//					}
 				}
 				
 				// Attach weapon to Turret
@@ -496,10 +498,10 @@ public class CustomizationControl : MonoBehaviour {
 		}
 		// Sync with PlayerPrefs
 		int ii=1;
-		while(true)
+		while(ii <= numHardPoints)
 		{
-			if(PlayerPrefs.HasKey("Weapon_"+ii))
-			{
+//			if(PlayerPrefs.HasKey("Weapon_"+ii))
+//			{
 				if((tempWeapons.Count>=ii) && (tempWeapons[ii-1]!=null))
 				{
 					switch(tempWeapons[ii-1].name)
@@ -526,19 +528,19 @@ public class CustomizationControl : MonoBehaviour {
 						PlayerPrefs.SetInt("Weapon_"+ii, 7);
 						break;
 					}
-					//Debug.Log("Setint Weapon_"+ii+" -> "+tempWeapons[ii-1].name);
+					Debug.Log("Setint Weapon_"+ii+" -> "+tempWeapons[ii-1].name);
 				}
 				else
 				{
 					PlayerPrefs.SetInt("Weapon_"+ii, 0);
-					//Debug.Log("Setint Weapon_"+ii+" -> 0");
+					Debug.Log("Setint Weapon_"+ii+" -> 0");
 				}
 				ii++;
-			}
-			else
-			{
-				break;
-			}
+//			}
+//			else
+//			{
+//				break;
+//			}
 		}
 		
 		

@@ -55,6 +55,11 @@ public class UIManager : MonoBehaviour {
 			//Debug.Log("Exiting");
 			Application.Quit();
 		}
+//		if(Input.GetButtonDown("Boost"))
+//		{
+//			PlayerPrefs.DeleteAll();
+//			Debug.Log("Playerprefs erased");
+//		}
 	}
 
 
