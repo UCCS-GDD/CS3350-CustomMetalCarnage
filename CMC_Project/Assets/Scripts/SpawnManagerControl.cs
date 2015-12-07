@@ -77,7 +77,7 @@ public class SpawnManagerControl : MonoBehaviour
 
 	void OnWaveComplete()
 	{
-		Debug.Log("Wave "+(currentWave-1)+" complete");
+		//Debug.Log("Wave "+(currentWave-1)+" complete");
 		GameManagerControl.ShowMessage("Wave "+(currentWave)+" Complete!");
 
 	}
@@ -85,7 +85,7 @@ public class SpawnManagerControl : MonoBehaviour
 
 	void OnLevelComplete()
 	{
-		Debug.Log("Level '"+Application.loadedLevelName+"' complete");
+		//Debug.Log("Level '"+Application.loadedLevelName+"' complete");
 		StopCoroutine("SpawnWave");
 		GameManagerControl.ShowMessage("The 'Opressor' has entered the Arena!");
 		BossPrefab.SetActive(true);
