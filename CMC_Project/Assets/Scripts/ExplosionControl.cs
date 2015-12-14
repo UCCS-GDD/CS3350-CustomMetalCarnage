@@ -5,6 +5,7 @@ public class ExplosionControl : MonoBehaviour
 {
 	public int team; // 0 for enemy projectile, 1 for player
 	public int damage;
+	public GameObject damageNumber;
 
 	// Use this for initialization
 	void Start () 
@@ -37,6 +38,10 @@ public class ExplosionControl : MonoBehaviour
 			else if(coll.GetComponent<BossControl>()!=null)
 			{
 				coll.GetComponent<BossControl>().TakeDamage(damage);
+			}
+			if(damageNumber!=null)
+			{
+				Instantiate(damageNumber, coll.transform.position, Quaternion.identity);
 			}
 		}
 		if((team==0) && (coll.CompareTag("Player")))

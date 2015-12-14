@@ -25,6 +25,8 @@ public class RayWeaponControl : MonoBehaviour
 	private RaycastHit2D hit;
 	private LineRenderer line;
 	private LineRenderer line2;
+
+	public GameObject damageNumber;
 	
 	// Use this for initialization
 	void Awake () 
@@ -153,6 +155,10 @@ public class RayWeaponControl : MonoBehaviour
 			else if(other.GetComponent<BossControl>()!=null)
 			{
 				other.GetComponent<BossControl>().TakeDamage(damage);
+			}
+			if(damageNumber!=null)
+			{
+				Instantiate(damageNumber, other.transform.position, Quaternion.identity);
 			}
 
 		}

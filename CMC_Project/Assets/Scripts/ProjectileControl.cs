@@ -20,6 +20,8 @@ public class ProjectileControl : MonoBehaviour
 	private bool exploded = false;
 	private SpriteRenderer thisRenderer;
 
+	public GameObject damageNumber;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -128,7 +130,10 @@ public class ProjectileControl : MonoBehaviour
 			{
 				other.GetComponent<BossControl>().TakeDamage(damage);
 			}
-
+			if(damageNumber!=null)
+			{
+				Instantiate(damageNumber, transform.position, Quaternion.identity);
+			}
 		}
 		if((team==0) && (other.tag == "Player"))
 		{

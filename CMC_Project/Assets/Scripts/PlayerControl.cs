@@ -11,6 +11,10 @@ public class PlayerControl : MonoBehaviour
 	private RectTransform healthFill;
 	private RectTransform healthFillRed;
 
+	public GameObject numberPrefab;
+	private GameObject numberObject;
+	private GameObject uiCanvas;
+
 	// Use this for initialization
 	void Start() 
 	{
@@ -20,6 +24,7 @@ public class PlayerControl : MonoBehaviour
 			maxHealth = health;
 			healthFill = GameObject.FindGameObjectWithTag("HealthFill").GetComponent<RectTransform>();
 			healthFillRed = GameObject.FindGameObjectWithTag("HealthFillRed").GetComponent<RectTransform>();
+			uiCanvas = GameObject.FindGameObjectWithTag("Canvas");
 		}
 	}
 
@@ -35,6 +40,11 @@ public class PlayerControl : MonoBehaviour
 	{
 		health -= incomingDamage;
 		health = (health < 0) ? 0 : health;
+		numberObject = Instantiate(numberPrefab, transform.position, Quaternion.identity) as GameObject;
+		numberObject.transform.localPosition = numberPrefab.transform.localPosition;
+		numberObject.transform.SetParent(uiCanvas.transform, false);
+		numberObject.GetComponent<UnityEngine.UI.Text>().text = incomingDamage.ToString();
+		numberObject.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = incomingDamage.ToString();
 		if(healthFill!=null)
 		{
 			healthFill.localScale = new Vector3(((float)health/(float)maxHealth), healthFill.localScale.y, healthFill.localScale.z);
