@@ -55,6 +55,8 @@ public class TurretControl : MonoBehaviour
 
 	private WeaponControl tempScript;
 
+	public bool canFire = true;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -156,7 +158,7 @@ public class TurretControl : MonoBehaviour
 		while(true)
 		{
 			// If primary fire button is pressed
-			if(Input.GetButton("Fire1"))
+			if(Input.GetButton("Fire1") && canFire)
 			{
 				if(primaryFire != null)
 				{
@@ -169,7 +171,7 @@ public class TurretControl : MonoBehaviour
 			}
 
 			// If secondary fire button is pressed
-			if(Input.GetButton("Fire2"))
+			if(Input.GetButton("Fire2") && canFire)
 			{
 
 				if(secondaryFire != null)
