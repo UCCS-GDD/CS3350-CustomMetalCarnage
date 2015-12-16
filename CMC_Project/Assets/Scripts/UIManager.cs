@@ -10,7 +10,8 @@ public class UIManager : MonoBehaviour {
 	public GameObject start_button;   
 	public GameObject play_button;
 	public GameObject build_button;
-	public GameObject options_button;
+	public GameObject credits_button;
+    public GameObject credits_screen;
     public GameObject back_button;
 	public GameObject name_screen;
 	public InputField player_name;
@@ -71,13 +72,13 @@ public class UIManager : MonoBehaviour {
 
 
 	public void showSelectionMenu(){
-		if (play_button != null && build_button != null && options_button != null) {
+		if (play_button != null && build_button != null && credits_button != null) {
 			if(start_button.activeInHierarchy){
 				//TODO: add a fade out 
 				start_button.SetActive(false);
 				play_button.SetActive(true);
 				build_button.SetActive(true);
-				options_button.SetActive(true);
+				credits_button.SetActive(true);
                 back_button.SetActive(false);
                 //audioManager.playSound(startClip);)
                 SoundManager.singleton.playSoundAtVolume(startClip, .4f);
@@ -91,9 +92,9 @@ public class UIManager : MonoBehaviour {
 		if (name_screen != null && !name_screen.activeInHierarchy) {
 			play_button.SetActive(false);
 			build_button.SetActive(false);
-			options_button.SetActive(false);
-			back_button.transform.SetParent(title_screen.transform, true);
-			back_button.transform.SetAsLastSibling();
+			credits_button.SetActive(false);
+            back_button.transform.SetParent(title_screen.transform, true);
+            back_button.transform.SetAsLastSibling();
             back_button.SetActive(true);
 			name_screen.SetActive(true);
 			if(PlayerPrefs.HasKey("PlayerName")){
@@ -102,16 +103,28 @@ public class UIManager : MonoBehaviour {
 
 		}
 	}
+
     public void showHelpScreen()
     {
         play_button.SetActive(false);
         build_button.SetActive(false);
-        options_button.SetActive(false);
+        credits_button.SetActive(false);
         title_text.SetActive(false);
-		back_button.transform.SetParent(help_screen.transform, true);
-		back_button.transform.SetAsLastSibling();
+        back_button.transform.SetParent(help_screen.transform, true);
+        back_button.transform.SetAsLastSibling();
         back_button.SetActive(true);
         help_screen.SetActive(true);
+    }
+    public void showCredits()
+    {
+        play_button.SetActive(false);
+        build_button.SetActive(false);
+        credits_button.SetActive(false);
+        title_text.SetActive(false);
+        back_button.transform.SetParent(credits_screen.transform, true);
+        back_button.transform.SetAsLastSibling();
+        back_button.SetActive(true);
+        credits_screen.SetActive(true);
     }
 
     public void backToPreviousMenu()
@@ -121,7 +134,7 @@ public class UIManager : MonoBehaviour {
             name_screen.SetActive(false);
             play_button.SetActive(true);
             build_button.SetActive(true);
-            options_button.SetActive(true);
+            credits_button.SetActive(true);
             back_button.SetActive(false);
         }
         else if(help_screen.activeInHierarchy && help_screen != null)
@@ -129,7 +142,16 @@ public class UIManager : MonoBehaviour {
             help_screen.SetActive(false);
             play_button.SetActive(true);
             build_button.SetActive(true);
-            options_button.SetActive(true);
+            credits_button.SetActive(true);
+            title_text.SetActive(true);
+            back_button.SetActive(false);
+        }
+        else if(credits_screen.activeInHierarchy && credits_screen != null)
+        {
+            credits_screen.SetActive(false);
+            play_button.SetActive(true);
+            build_button.SetActive(true);
+            credits_button.SetActive(true);
             title_text.SetActive(true);
             back_button.SetActive(false);
         }

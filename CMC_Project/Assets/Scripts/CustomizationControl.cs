@@ -12,7 +12,8 @@ public class CustomizationControl : MonoBehaviour {
 	public AudioClip startClip;
 	
 	private AudioSource audioSource;
-	
+
+	private int gameTypeNum;
 	private int chassisNum;
 	private int turretNum;
 	private int numHardPoints;
@@ -451,6 +452,9 @@ public class CustomizationControl : MonoBehaviour {
 				// Maybe play sound for out of hardpoints
 			}
 			break;
+		case "GameType":
+			gameTypeNum = int.Parse(partName);
+			break;
 		}
 	}
 	
@@ -557,7 +561,7 @@ public class CustomizationControl : MonoBehaviour {
 	
 	public void NextLevel()
 	{
-		Application.LoadLevel(2);
+		Application.LoadLevel(gameTypeNum+1);
 	}
 	
 }
