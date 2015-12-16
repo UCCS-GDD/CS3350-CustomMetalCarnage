@@ -70,6 +70,10 @@ public class TurretControl : MonoBehaviour
 		StartCoroutine("FireAndReloadListener");
 	}
 	
+    public void setFireable(bool fireable)
+    {
+        canFire = fireable;
+    }
 
 	public void DelegateFireAndReload() 
 	{		

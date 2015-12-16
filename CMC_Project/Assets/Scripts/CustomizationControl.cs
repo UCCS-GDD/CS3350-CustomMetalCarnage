@@ -81,7 +81,7 @@ public class CustomizationControl : MonoBehaviour {
 	// Use this for initialization
 	void Start() 
 	{
-		audioManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+		audioManager = SoundManager.singleton;
 	}
 
 
@@ -93,6 +93,10 @@ public class CustomizationControl : MonoBehaviour {
 		}
 	}
 
+    public void DisableFiring(bool fireControl)
+    {
+        GameObject.FindGameObjectWithTag("Turret").GetComponent<TurretControl>().canFire = fireControl;
+    }
 	
 	void InitializePlayer()
 	{
