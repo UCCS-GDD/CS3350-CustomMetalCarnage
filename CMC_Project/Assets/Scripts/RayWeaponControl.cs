@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class RayWeaponControl : MonoBehaviour 
+public class RayWeaponControl : WeaponControl 
 {
 	public int weaponType;
 	public int damage;
@@ -76,14 +76,14 @@ public class RayWeaponControl : MonoBehaviour
 		}
 		
 
-		if(Input.GetButton("Fire1"))
-		{
-			FireCall();
-		}
+//		if(Input.GetButton("Fire1"))
+//		{
+//			FireCall();
+//		}
 	}
 	
 	
-	public void FireCall()
+	public override void FireCall()
 	{
 		if((this!=null) && (Time.time > ((1f/rateOfFire)+lastFireTime)))
 		{
@@ -92,11 +92,6 @@ public class RayWeaponControl : MonoBehaviour
 				readyObject.SetActive(false);
 			}
 			lastFireTime = Time.time;
-
-			if(firingSound!=null)
-			{
-				SoundManager.singleton.playModulatedSound(firingSound, .5f);
-			}
 
 			hit = Physics2D.Raycast(new Vector2(transform.position.x+firingTip.x, transform.position.y+firingTip.y), new Vector2((-Mathf.Sin(transform.rotation.eulerAngles.z*Mathf.Deg2Rad)), (Mathf.Cos(transform.rotation.eulerAngles.z*Mathf.Deg2Rad))), Mathf.Infinity, -1, 0f, 0f);
 
@@ -128,9 +123,21 @@ public class RayWeaponControl : MonoBehaviour
 			}
 		}
 	}
+
+
+	public override void FiringSoundCall()
+	{
+		if(firingSound!=null)
+		{
+			if((this!=null) && (Time.time > ((1f/rateOfFire)+lastFireTime)))
+			{
+				SoundManager.singleton.playModulatedSound(firingSound, volume);
+			}
+		}
+	}
+
 	
-	
-	public void ReloadCall()
+	public override void ReloadCall()
 	{
 		
 	}

@@ -44,11 +44,14 @@ public class TurretControl : MonoBehaviour
 	private float angleToMouse;
 	private Quaternion targetRotation;
 
-	// Delegates for firing/reloading weapons
+	// Delegates for firing/reloading weapons and sounds
 	delegate void FireOrReload();
 	FireOrReload primaryFire;
 	FireOrReload secondaryFire;
 	FireOrReload secondaryReload;
+	delegate void FireSound();
+	FireSound primaryFireSound;
+	FireSound secondaryFireSound;
 
 	private WeaponControl tempScript;
 
@@ -72,6 +75,8 @@ public class TurretControl : MonoBehaviour
 		primaryFire = null;
 		secondaryFire = null;
 		secondaryReload = null;
+		primaryFireSound = null;
+		secondaryFireSound = null;
 
 		// Loop through children
 		foreach(Transform child in transform)
@@ -87,12 +92,42 @@ public class TurretControl : MonoBehaviour
 				{
 					// Store FireCall() in a delegate
 					primaryFire += tempScript.FireCall;
+
+					int ii = 0;
+					bool matched = false;
+					while(ii<child.GetSiblingIndex())
+					{
+						if(transform.GetChild(ii).name == child.name)
+						{
+							matched = true;
+						}
+						ii++;
+					}
+					if(!matched)
+					{
+						primaryFireSound += tempScript.FiringSoundCall;
+					}
 				}
 				// Check if child is a Secondary Weapon
 				else if(tempScript.weaponType==2)
 				{
 					// Store FireCall() in a delegate
 					secondaryFire += tempScript.FireCall;
+
+					int ii = 0;
+					bool matched = false;
+					while(ii<child.GetSiblingIndex())
+					{
+						if(transform.GetChild(ii).name == child.name)
+						{
+							matched = true;
+						}
+						ii++;
+					}
+					if(!matched)
+					{
+						secondaryFireSound += tempScript.FiringSoundCall;
+					}
 
 					// Store ReloadCall() in a delegate
 					secondaryReload += tempScript.ReloadCall;
@@ -125,6 +160,10 @@ public class TurretControl : MonoBehaviour
 			{
 				if(primaryFire != null)
 				{
+					if(primaryFireSound != null)
+					{
+						primaryFireSound();
+					}
 					primaryFire();
 				}
 			}
@@ -132,8 +171,13 @@ public class TurretControl : MonoBehaviour
 			// If secondary fire button is pressed
 			if(Input.GetButton("Fire2"))
 			{
+
 				if(secondaryFire != null)
 				{
+					if(secondaryFireSound != null)
+					{
+						secondaryFireSound();
+					}
 					secondaryFire();
 				}
 			}
