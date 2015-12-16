@@ -40,18 +40,13 @@ public class WeaponControl : MonoBehaviour
 	}
 
 
-	public void FireCall()
+	public virtual void FireCall()
 	{
 		if((this!=null) && (Time.time > ((1f/rateOfFire)+lastFireTime)))
 		{
 			if(readyObject!=null)
 			{
 				readyObject.SetActive(false);
-			}
-
-			if(firingSound!=null)
-			{
-            	SoundManager.singleton.playModulatedSound(firingSound, volume);
 			}
 
 			lastFireTime = Time.time;
@@ -82,7 +77,19 @@ public class WeaponControl : MonoBehaviour
 	}
 
 
-	public void ReloadCall()
+	public virtual void FiringSoundCall()
+	{
+		if(firingSound!=null)
+		{
+			if((this!=null) && (Time.time > ((1f/rateOfFire)+lastFireTime)))
+			{
+				SoundManager.singleton.playModulatedSound(firingSound, volume);
+			}
+		}
+	}
+
+
+	public virtual void ReloadCall()
 	{
 
 	}
