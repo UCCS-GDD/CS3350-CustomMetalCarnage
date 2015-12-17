@@ -44,7 +44,9 @@ public class GameManagerControl : MonoBehaviour
 	private static string currentMessage;
 	private static float messageStartTime;
 	public static float messageCharDelay = 0.1f;
-	public float messageTotalDuration;
+    public float messageTotalDuration;
+    public GameObject pause_text;
+    bool isPaused = false;
 
 	// Use this for initialization
 	void Awake() 
@@ -132,9 +134,30 @@ public class GameManagerControl : MonoBehaviour
 			{
 				item.text = "";
 			}
-		}
+        }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused == false)
+            {
+                Time.timeScale = 0;
+                isPaused = true;
+                //pause_text.GetComponentInChildren<UnityEngine.UI.Text>().color = new Color(0, 0, 0, 255);
+                pause_text.SetActive(true);
+                menu_Button.SetActive(true);
+                retry_Button.SetActive(true);
 
+            }
+            else
+            {
+                Time.timeScale = 1;
+                isPaused = false;
+                //pause_text.GetComponentInChildren<UnityEngine.UI.Text>().color = new Color(0, 0, 0, 0);
+                pause_text.SetActive(false);
+                menu_Button.SetActive(false);
+                retry_Button.SetActive(false);
+            }
+        }
 	}
 
 

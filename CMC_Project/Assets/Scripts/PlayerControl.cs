@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerControl : MonoBehaviour
 {
     public int health = 1;
+    GameObject pause_text;
     private int maxHealth;
     private SpriteRenderer damageFlash;
     public float damageFlashDecay;
@@ -14,7 +15,6 @@ public class PlayerControl : MonoBehaviour
     public GameObject numberPrefab;
     private GameObject numberObject;
     private GameObject uiCanvas;
-    bool isPaused = false;
 
     // Use this for initialization
     void Start()
@@ -26,6 +26,7 @@ public class PlayerControl : MonoBehaviour
             healthFill = GameObject.FindGameObjectWithTag("HealthFill").GetComponent<RectTransform>();
             healthFillRed = GameObject.FindGameObjectWithTag("HealthFillRed").GetComponent<RectTransform>();
             uiCanvas = GameObject.FindGameObjectWithTag("Canvas");
+            pause_text = GameObject.FindGameObjectWithTag("PauseTxt");
         }
     }
 
@@ -33,19 +34,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isPaused == false)
-            {
-                Time.timeScale = 0;
-                isPaused = true;
-            }
-            else
-            {
-                Time.timeScale = 1;
-                isPaused = false;
-            }
-        }
+
     }
 
 
