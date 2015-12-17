@@ -36,6 +36,7 @@ public class CustomizationControl : MonoBehaviour {
 	
 	private GameObject playerObject;
 
+	private bool stopping = false;
 
 	// Use this for initialization
 	void Awake() 
@@ -346,6 +347,21 @@ public class CustomizationControl : MonoBehaviour {
 //					break;
 //				}
 			}
+
+			stopping = false;
+			while(!stopping)
+			{
+				if(PlayerPrefs.HasKey("Weapon_"+tempInt))
+				{
+					PlayerPrefs.SetInt("Weapon_"+tempInt, 0);
+					Debug.Log("Setint Weapon_"+tempInt+" -> 0");
+				}
+				else
+				{
+					stopping = true;
+				}
+				tempInt++;
+			}
 			
 			if(tempChassis!=null)
 			{
@@ -442,6 +458,21 @@ public class CustomizationControl : MonoBehaviour {
 //					{
 //						break;
 //					}
+				}
+
+				stopping = false;
+				while(!stopping)
+				{
+					if(PlayerPrefs.HasKey("Weapon_"+ii))
+					{
+						PlayerPrefs.SetInt("Weapon_"+ii, 0);
+						Debug.Log("Setint Weapon_"+ii+" -> 0");
+					}
+					else
+					{
+						stopping = true;
+					}
+					ii++;
 				}
 				
 				// Attach weapon to Turret
@@ -554,6 +585,21 @@ public class CustomizationControl : MonoBehaviour {
 //			{
 //				break;
 //			}
+		}
+
+		stopping = false;
+		while(!stopping)
+		{
+			if(PlayerPrefs.HasKey("Weapon_"+ii))
+			{
+				PlayerPrefs.SetInt("Weapon_"+ii, 0);
+				Debug.Log("Setint Weapon_"+ii+" -> 0");
+			}
+			else
+			{
+				stopping = true;
+			}
+			ii++;
 		}
 		
 		
