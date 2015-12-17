@@ -42,18 +42,30 @@ public class PlayerControl : MonoBehaviour
     {
         health -= incomingDamage;
         health = (health < 0) ? 0 : health;
+		health = (health > maxHealth) ? maxHealth : health;
         numberObject = Instantiate(numberPrefab, transform.position, Quaternion.identity) as GameObject;
         numberObject.transform.localPosition = numberPrefab.transform.localPosition;
         numberObject.transform.SetParent(uiCanvas.transform, false);
-        numberObject.GetComponent<UnityEngine.UI.Text>().text = incomingDamage.ToString();
-        numberObject.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = incomingDamage.ToString();
+		if(incomingDamage > 0)
+		{
+        	numberObject.GetComponent<UnityEngine.UI.Text>().text = incomingDamage.ToString();
+        	numberObject.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = incomingDamage.ToString();
+			numberObject.transform.GetChild(0).GetComponent<ChangeColor>().targetColor = Color.red;
+		}
+		else
+		{
+			numberObject.GetComponent<UnityEngine.UI.Text>().text = incomingDamage.ToString().Replace("-", "+");
+			numberObject.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = incomingDamage.ToString().Replace("-", "+");
+			numberObject.transform.GetChild(0).GetComponent<ChangeColor>().targetColor = Color.green;
+		}
+
         if (healthFill != null)
         {
             healthFill.localScale = new Vector3(((float)health / (float)maxHealth), healthFill.localScale.y, healthFill.localScale.z);
             StopCoroutine("HealthDecrease");
             StartCoroutine("HealthDecrease");
         }
-        if (damageFlash != null)
+        if ((damageFlash != null) && (incomingDamage > 0))
         {
             damageFlash.color = new Color(damageFlash.color.r, damageFlash.color.g, damageFlash.color.b, 1f);
             StopCoroutine("DamageFlash");
