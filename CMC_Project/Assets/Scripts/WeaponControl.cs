@@ -94,6 +94,7 @@ public class WeaponControl : MonoBehaviour
 
 	}
 
+
 	private GameObject GetPooledProjectile()
 	{
 		foreach(GameObject projectile in projectiles)
@@ -105,6 +106,15 @@ public class WeaponControl : MonoBehaviour
 		}
 
 		return null;
+	}
+
+
+	void OnDestroy()
+	{
+		foreach(GameObject obj in projectiles)
+		{
+			Destroy(obj);
+		}
 	}
 
 
