@@ -147,22 +147,25 @@ public class TurretControl : MonoBehaviour
 	{
 		while(true)
 		{
-			targetPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
-			directionToMouse = targetPosition - new Vector3(transform.position.x, transform.position.y, 0f);
-			angleToMouse = Mathf.Atan2(directionToMouse.x, directionToMouse.y) * Mathf.Rad2Deg;
-			targetRotation = Quaternion.Euler(new Vector3(0f, 0f, -angleToMouse));
-			transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed);
-			yield return null;
+            if(Time.timeScale != 0)
+            {
+                targetPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));
+                directionToMouse = targetPosition - new Vector3(transform.position.x, transform.position.y, 0f);
+                angleToMouse = Mathf.Atan2(directionToMouse.x, directionToMouse.y) * Mathf.Rad2Deg;
+                targetRotation = Quaternion.Euler(new Vector3(0f, 0f, -angleToMouse));
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed);
+            }
+            yield return null;
 		}
 	}
 
 
 	IEnumerator FireAndReloadListener()
 	{
-		while(true)
+        while (true)
 		{
 			// If primary fire button is pressed
-			if(Input.GetButton("Fire1") && canFire)
+            if (Input.GetButton("Fire1") && canFire && Time.timeScale != 0)
 			{
 				if(primaryFire != null)
 				{
@@ -175,7 +178,7 @@ public class TurretControl : MonoBehaviour
 			}
 
 			// If secondary fire button is pressed
-			if(Input.GetButton("Fire2") && canFire)
+            if (Input.GetButton("Fire2") && canFire && Time.timeScale != 0)
 			{
 
 				if(secondaryFire != null)
@@ -189,7 +192,7 @@ public class TurretControl : MonoBehaviour
 			}
 
 			// If secondary reload button is pressed
-			if(Input.GetButton("Reload2"))
+            if (Input.GetButton("Reload2") && Time.timeScale != 0)
 			{
 				if(secondaryReload != null)
 				{

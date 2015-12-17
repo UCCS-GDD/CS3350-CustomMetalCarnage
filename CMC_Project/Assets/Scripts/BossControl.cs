@@ -46,7 +46,7 @@ public class BossControl : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{
 		tempVector = (targetObject.transform.position - transform.position).normalized;
 		forceDirection = new Vector2(tempVector.x, tempVector.y);
