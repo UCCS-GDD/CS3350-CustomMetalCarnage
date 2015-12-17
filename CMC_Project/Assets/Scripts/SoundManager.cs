@@ -61,13 +61,19 @@ public class SoundManager : MonoBehaviour {
                             singleton.playSustainedSound(levelMusic);
                         }
                         break;
-                }
-                //Debug.Log(loopSource);
-                //Debug.Log(loopSource.clip);
-
-            }
-            else
-            {
+					case 3:
+						if (singleton.loopSource.clip != levelMusic)
+						{
+							singleton.playSustainedSound(levelMusic);
+						}
+						break;
+				}
+				//Debug.Log(loopSource);
+				//Debug.Log(loopSource.clip);
+				
+			}
+			else
+			{
                 switch (Application.loadedLevel)
                 {
                     case 0:
@@ -88,7 +94,13 @@ public class SoundManager : MonoBehaviour {
                             singleton.playSustainedSound(levelMusic);
                         }
                         break;
-                }
+					case 3:
+						if (singleton.loopSource.clip != levelMusic)
+						{
+							singleton.playSustainedSound(levelMusic);
+						}
+						break;
+				}
                 Destroy(this.gameObject);
             }
         }
