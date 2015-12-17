@@ -27,6 +27,15 @@ public class RayWeaponControl : WeaponControl
 	private LineRenderer line2;
 
 	public GameObject damageNumber;
+
+	public float maxHeat;
+	public float heatPerFire;
+	public float cooldownSpeed;
+	private float currentHeat;
+
+	private bool canFire = true;
+
+	private SpriteRenderer thisRenderer;
 	
 	// Use this for initialization
 	void Awake () 
@@ -37,6 +46,7 @@ public class RayWeaponControl : WeaponControl
 			readyObject = Instantiate(readyPrefab, transform.position, transform.rotation) as GameObject;
 			readyObject.transform.parent = transform;
 			readyObject.transform.localPosition = new Vector3(firingTip.x, firingTip.y, 0f);
+			readyObject.SetActive(false);
 		}
 
 		targetObject = Instantiate(targetPrefab, Vector3.zero, Quaternion.identity) as GameObject;
@@ -53,6 +63,9 @@ public class RayWeaponControl : WeaponControl
 
 		lastFireTime = -(1f/rateOfFire);
 
+		currentHeat = 0f;
+
+		thisRenderer = GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -60,10 +73,10 @@ public class RayWeaponControl : WeaponControl
 	{
 
 
-		if((this!=null) && (readyObject!=null) && (Time.time > ((1f/rateOfFire)+lastFireTime)))
-		{
-			readyObject.SetActive(true);
-		}
+//		if((this!=null) && (readyObject!=null) && (Time.time > ((1f/rateOfFire)+lastFireTime)))
+//		{
+//			readyObject.SetActive(true);
+//		}
 		if(Time.time > (lastFireTime+duration))
 		{
 			particleObject.SetActive(false);
@@ -75,24 +88,42 @@ public class RayWeaponControl : WeaponControl
 			line2.SetPosition(0, particleObject.transform.position);
 		}
 		
-
-//		if(Input.GetButton("Fire1"))
-//		{
-//			FireCall();
-//		}
+		currentHeat -= cooldownSpeed * Time.deltaTime;
+		if(currentHeat < 0f)
+		{
+			currentHeat = 0f;
+		}
+		thisRenderer.color = new Color(thisRenderer.color.r, 1f-(currentHeat/maxHeat), 1f-(currentHeat/maxHeat));
+		if(!canFire && (currentHeat<=0f))
+		{
+			canFire = true;
+			if(readyObject!=null)
+			{
+				readyObject.SetActive(false);
+			}
+		}
 	}
 	
 	
 	public override void FireCall()
 	{
-		if((this!=null) && (Time.time > ((1f/rateOfFire)+lastFireTime)))
+		if((this!=null) && canFire && (Time.time > ((1f/rateOfFire)+lastFireTime)))
 		{
-			if(readyObject!=null)
-			{
-				readyObject.SetActive(false);
-			}
+//			if(readyObject!=null)
+//			{
+//				readyObject.SetActive(false);
+//			}
 			lastFireTime = Time.time;
-
+			currentHeat += heatPerFire;
+			if(currentHeat > maxHeat)
+			{
+				currentHeat = maxHeat;
+				canFire = false;
+				if(readyObject!=null)
+				{
+					readyObject.SetActive(true);
+				}
+			}
 			hit = Physics2D.Raycast(new Vector2(transform.position.x+firingTip.x, transform.position.y+firingTip.y), new Vector2((-Mathf.Sin(transform.rotation.eulerAngles.z*Mathf.Deg2Rad)), (Mathf.Cos(transform.rotation.eulerAngles.z*Mathf.Deg2Rad))), Mathf.Infinity, -1, 0f, 0f);
 
 			// Show particle effect
