@@ -333,12 +333,12 @@ public class CustomizationControl : MonoBehaviour {
 							PlayerPrefs.SetInt("Weapon_"+tempInt, 7);
 							break;
 						}
-						Debug.Log("Setint Weapon_"+tempInt+" -> "+tempWeapons[tempInt-1].name);
+						//Debug.Log("Setint Weapon_"+tempInt+" -> "+tempWeapons[tempInt-1].name);
 					}
 					else
 					{
 						PlayerPrefs.SetInt("Weapon_"+tempInt, 0);
-						Debug.Log("Setint Weapon_"+tempInt+" -> 0");
+						//Debug.Log("Setint Weapon_"+tempInt+" -> 0");
 					}
 					tempInt++;
 //				}
@@ -354,7 +354,7 @@ public class CustomizationControl : MonoBehaviour {
 				if(PlayerPrefs.HasKey("Weapon_"+tempInt))
 				{
 					PlayerPrefs.SetInt("Weapon_"+tempInt, 0);
-					Debug.Log("Setint Weapon_"+tempInt+" -> 0");
+					//Debug.Log("Setint Weapon_"+tempInt+" -> 0");
 				}
 				else
 				{
@@ -445,12 +445,12 @@ public class CustomizationControl : MonoBehaviour {
 								PlayerPrefs.SetInt("Weapon_"+ii, 7);
 								break;
 							}
-							Debug.Log("Setint Weapon_"+ii+" -> "+tempWeapons[ii-1].name);
+							//Debug.Log("Setint Weapon_"+ii+" -> "+tempWeapons[ii-1].name);
 						}
 						else
 						{
 							PlayerPrefs.SetInt("Weapon_"+ii, 0);
-							Debug.Log("Setint Weapon_"+ii+" -> 0");
+							//Debug.Log("Setint Weapon_"+ii+" -> 0");
 						}
 						ii++;
 //					}
@@ -466,7 +466,7 @@ public class CustomizationControl : MonoBehaviour {
 					if(PlayerPrefs.HasKey("Weapon_"+ii))
 					{
 						PlayerPrefs.SetInt("Weapon_"+ii, 0);
-						Debug.Log("Setint Weapon_"+ii+" -> 0");
+						//Debug.Log("Setint Weapon_"+ii+" -> 0");
 					}
 					else
 					{
@@ -572,12 +572,12 @@ public class CustomizationControl : MonoBehaviour {
 						PlayerPrefs.SetInt("Weapon_"+ii, 7);
 						break;
 					}
-					Debug.Log("Setint Weapon_"+ii+" -> "+tempWeapons[ii-1].name);
+					//Debug.Log("Setint Weapon_"+ii+" -> "+tempWeapons[ii-1].name);
 				}
 				else
 				{
 					PlayerPrefs.SetInt("Weapon_"+ii, 0);
-					Debug.Log("Setint Weapon_"+ii+" -> 0");
+					//Debug.Log("Setint Weapon_"+ii+" -> 0");
 				}
 				ii++;
 //			}
@@ -593,7 +593,7 @@ public class CustomizationControl : MonoBehaviour {
 			if(PlayerPrefs.HasKey("Weapon_"+ii))
 			{
 				PlayerPrefs.SetInt("Weapon_"+ii, 0);
-				Debug.Log("Setint Weapon_"+ii+" -> 0");
+				//Debug.Log("Setint Weapon_"+ii+" -> 0");
 			}
 			else
 			{
