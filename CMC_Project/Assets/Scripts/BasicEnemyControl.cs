@@ -21,6 +21,8 @@ public class BasicEnemyControl : MonoBehaviour
 	public GameObject explosionPrefab;
 //	private GameObject tempObject;
 
+	public bool canFire = true;
+
 	delegate void Shoot();
 	Shoot shoot;
 
@@ -55,7 +57,7 @@ public class BasicEnemyControl : MonoBehaviour
 		{
 			thisRigidbody.velocity = Vector2.zero;
 		}
-		if(Vector3.Distance(playerObject.transform.position, transform.position) < shootDistance)
+		if(canFire && (Vector3.Distance(playerObject.transform.position, transform.position) < shootDistance))
 		{
 			shoot();
 		}

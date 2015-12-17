@@ -74,6 +74,11 @@ public class CustomizationControl : MonoBehaviour {
 				break;
 			}
 		}
+
+		if(PlayerPrefs.HasKey("GameType"))
+		{
+			gameTypeNum = PlayerPrefs.GetInt("GameType");
+		}
 		
 		InitializePlayer();
 	}
