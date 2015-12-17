@@ -14,6 +14,7 @@ public class BossControl : MonoBehaviour
 
 	public AudioClip explosionSound;
     public AudioClip bossMusic;
+	public AudioClip levelMusic;
 	
 	public GameObject explosionPrefab;
 
@@ -27,11 +28,23 @@ public class BossControl : MonoBehaviour
 
 	private bool circuitComplete = false;
 	//	private GameObject tempObject;
+	public bool endBoss = true;
 	
 	delegate void Shoot();
 	Shoot shoot;
 	
 	// Use this for initialization
+	void Awake()
+	{
+		if(topWall==null)
+		{
+			topWall = GameObject.FindGameObjectWithTag("TopWall");
+			bottomWall = GameObject.FindGameObjectWithTag("BottomWall");
+			leftWall = GameObject.FindGameObjectWithTag("LeftWall");
+			rightWall = GameObject.FindGameObjectWithTag("RightWall");
+		}
+	}
+
 	void Start () 
 	{
 		targetObject = Instantiate(targetPrefab, topWall.transform.position, Quaternion.identity) as GameObject;
@@ -43,6 +56,8 @@ public class BossControl : MonoBehaviour
 		{
 			shoot += child.GetComponent<WeaponControl>().FireCall;
 		}
+
+
 	}
 	
 	// Update is called once per frame
@@ -132,10 +147,15 @@ public class BossControl : MonoBehaviour
 		{
 			Destroy(item.gameObject);
 		}
-		
-		GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerControl>().retry_Button.SetActive(true);
-		GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerControl>().menu_Button.SetActive(true);
-		GameManagerControl.ShowMessage("Congratulations! You are the Champion of the Arena!");
+		if (endBoss) {
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManagerControl> ().retry_Button.SetActive (true);
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManagerControl> ().menu_Button.SetActive (true);
+			GameManagerControl.ShowMessage ("Congratulations! You are the Champion of the Arena!");
+		}
+		else
+		{
+			SoundManager.singleton.playSustainedSound(levelMusic);
+		}
 	}
 
 }
