@@ -10,7 +10,6 @@ public class SpawnManagerControl : MonoBehaviour
 	public float[] spawnerDelay;
 
 	public GameObject[][] spawnerRatios = new GameObject[5][]; 
-	public GameObject[] spawners;
 	public GameObject[] wave1Ratios = new GameObject[5];
 	public GameObject[] wave2Ratios = new GameObject[5];
 	public GameObject[] wave3Ratios = new GameObject[5];
