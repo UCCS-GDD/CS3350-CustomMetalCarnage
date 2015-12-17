@@ -12,13 +12,14 @@ public class SpawnControl : MonoBehaviour
 	public GameObject prespawnPrefab;
 	public float prespawnTimeLead;
 	private bool prespawnActive = false;
+	public bool proximityCheck = true;
 
 	public static int pointsUsed;
 
 	// Use this for initialization
 	void Awake ()
 	{
-		if(Physics2D.CircleCast(transform.position, 2, Vector2.zero))
+		if(proximityCheck && Physics2D.CircleCast(transform.position, 2, Vector2.zero))
 		{
 			Destroy(this.gameObject);
 		}
