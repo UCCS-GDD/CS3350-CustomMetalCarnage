@@ -80,6 +80,11 @@ public class CustomizationControl : MonoBehaviour {
 		{
 			gameTypeNum = PlayerPrefs.GetInt("GameType");
 		}
+		else
+		{
+			PlayerPrefs.SetInt("GameType", 1);
+			gameTypeNum = 1;
+		}
 		
 		InitializePlayer();
 	}
