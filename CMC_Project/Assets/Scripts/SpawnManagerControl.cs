@@ -124,7 +124,7 @@ public class SpawnManagerControl : MonoBehaviour
 	{
 		//Debug.Log("Level '"+Application.loadedLevelName+"' complete");
 		StopCoroutine("SpawnWave");
-		GameManagerControl.ShowMessage("The 'Opressor' has entered the Arena!");
+		GameManagerControl.ShowMessage("The 'Oppressor' has entered the Arena!");
 		BossPrefab.SetActive(true);
 	}
 
