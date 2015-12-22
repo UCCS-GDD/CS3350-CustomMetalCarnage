@@ -52,7 +52,7 @@ public class PlayerControl : MonoBehaviour
         	numberObject.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = incomingDamage.ToString();
 			numberObject.transform.GetChild(0).GetComponent<ChangeColor>().targetColor = Color.red;
 		}
-		else
+		else if(incomingDamage < 0)
 		{
 			numberObject.GetComponent<UnityEngine.UI.Text>().text = incomingDamage.ToString().Replace("-", "+");
 			numberObject.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = incomingDamage.ToString().Replace("-", "+");
